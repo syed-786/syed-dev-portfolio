@@ -220,7 +220,7 @@ export const experiences = [
     title: "PG-Diploma in Advanced Computing (PG-DAC)",
     company: "Centre for Development of Advanced Computing (C-DAC)",
     period: "2017 - 2018",
-    description: `Completed a postgraduate diploma focused on advanced computing, software engineering, & emerging technologie. Gained hands‑on experience in building scalable applications and strengthening problem‑solving skills for industry‑ready development.`,
+    description: `Completed a postgraduate diploma focused on advanced computing, software engineering, & emerging technologies. Gained hands‑on experience in building scalable applications and strengthening problem‑solving skills for industry‑ready development.`,
     technologies: [
       "Software Development",
       " Advance Programming",
@@ -245,8 +245,8 @@ export const projects = [
   {
     title: "NTCA Secure File Sharing App.",
     description: `      Designed and developed a secure document exchange app with role-based access control (Admin, Sub‑Admin, End User).
-•Implemented invitation-only signup, account lock feature, location tracking using Geolocation API for enhanced security.
-•Strengthened application security with HTTP-only cookies, strict origin policies & access/ refresh tokens to prevent XSS
+Implemented invitation-only signup, account lock feature, location tracking using Geolocation API for enhanced security.
+Strengthened application security with HTTP-only cookies, strict origin policies & access/ refresh tokens to prevent XSS
 and CSRF attacks.`,
     image: "/images/p4.jpg",
     techStack: [
@@ -263,8 +263,8 @@ and CSRF attacks.`,
   {
     title: "Amway E-Commerce Platform",
     description: `Contributed to the development of a large-scale e-commerce platform using React.js and microfrontend architecture.
-•Developed reusable and independently deployable UI modules to support scalable frontend delivery.
-•Worked on frontend performance optimization and responsive user experiences for enterprise-level workflows.`,
+Developed reusable and independently deployable UI modules to support scalable frontend delivery.
+Worked on frontend performance optimization and responsive user experiences for enterprise-level workflows.`,
     image: "/images/p1.jpg",
     techStack: ["React", "Next.js", "Microfrontend", "Redux", "StoryBook"],
     demoUrl: "https://example.com",
@@ -273,8 +273,8 @@ and CSRF attacks.`,
   {
     title: "HDFC SKY Online Trading Platform",
     description: `Contributed to development for HDFC SKY, a unified trading platform for stocks, mutual funds, and investment services.
-•Developed reusable frontend components and integrated business-critical REST APIs.
-•Improved responsive layouts and user workflows using Material UI and modern frontend development practices.`,
+Developed reusable frontend components and integrated business-critical REST APIs.
+Improved responsive layouts and user workflows using Material UI and modern frontend development practices.`,
     image: "/images/p3.jpg",
     techStack: ["React.js", "Next.js", "Node.js", "Express"],
     demoUrl: "https://example.com",
@@ -283,8 +283,8 @@ and CSRF attacks.`,
   {
     title: "One Muthoot Web App",
     description: `Developed admin dashboards and management interfaces for loan products, blogs, and user operations.
-•Built reusable layouts and implemented dynamic routing using Next.js.
-•Improved UI consistency and frontend maintainability using Tailwind CSS and component-based architecture.`,
+Built reusable layouts and implemented dynamic routing using Next.js.
+Improved UI consistency and frontend maintainability using Tailwind CSS and component-based architecture.`,
     image: "/images/p5.jpg",
     techStack: ["Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
     demoUrl: "https://example.com",
@@ -292,7 +292,7 @@ and CSRF attacks.`,
   },
   {
     title: "Jeeves Admin Control Panel",
-    description: `Developed admin tools for managing users, catalogs, files, roles and advertise campaigns.
+    description: `Developed admin tools for managing users, catalogs, files, roles and advertising campaigns.
     `,
     image: "/images/p2.jpg",
     techStack: ["React.js", "JavaScript", "Node.js", "Redux"],
@@ -320,12 +320,12 @@ export const skillCategories = [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "Redux", icon: SiRedux },
       { name: "Zustand", icon: SiJavascript },
-      { name: "Tanstack Query", icon: SiReactquery },
+      { name: "TanStack Query", icon: SiReactquery },
       { name: "Material UI", icon: SiMui },
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "HTML5", icon: SiHtml5 },
       { name: "CSS3", icon: SiCss },
-      { name: "React Testing Lib.", icon: SiTestinglibrary },
+      { name: "React Testing Library", icon: SiTestinglibrary },
     ],
   },
   {
