@@ -1,0 +1,26 @@
+[
+  {
+    "image": "/images/Simran.jpg",
+    "name": "Simran Kaur",
+    "role": "React Native Developer at GlobalLogic",
+    "text": "I've worked with Syed for more than one year. He is innovative, organized as well as helpful person to have around. His exceptional set of skills and integrity is what makes him an amazing team player."
+  },
+  {
+    "image": "/images/Suhaib.jpg",
+    "name": "Mohammad Suhaib",
+    "role": "Senior Frontend Engineer (React, Next.js, TypeScript)",
+    "text": "Syed Adeeb Ahmad is an honest, dedicated and smart working guy. His zeal to learn new things and his commitment to completing tasks on time make him a valuable team player."
+  },
+  {
+    "image": "/images/Jomin.jpg",
+    "name": "Jomin John",
+    "role": "Senior Software Engineer at Technopals",
+    "text": "Syed was one of the quick learners in the team. His willingness to learn and his experience in ReactJs & React Native gave a large contribution to the team."
+  },
+  {
+    "image": "/images/Eric.jpg",
+    "name": "Eric Jose Joy",
+    "role": "Senior Software Engineer at Planerio GmbH",
+    "text": "A hardworking, sincere and highly motivated team player. Syed has shown a great deal of learning which had a great impact on the projects he was associated with, maintaining coding standards and ensuring on-time delivery."
+  }
+]
