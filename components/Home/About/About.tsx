@@ -13,7 +13,7 @@ const About = () => {
       <HeadingSection
         title_1="About"
         title_2="Me"
-        description="Get to know the developer bethind the code"
+        description="Get to know the developer behind the code"
       />
 
       <div className="grid w-[80%] mx-auto lg:grid-cols-2 gap-12 items-center">
@@ -49,17 +49,17 @@ const About = () => {
           </h3>
           <p className="text-muted-foreground leading-relaxed dark:text-gray-300 text-md">
             I’m a Full Stack Developer who enjoys turning ideas into
-            experiences. Over the past 8 years, I’ve worked across the different
-            stacks to build modern web apps that are scalable, performant, and
-            built to evolve. My journey has taken me from shaping polished user
+            experiences. Over the past 8 years, I’ve worked across the stack to
+            build modern web apps that are scalable, performant, and built to
+            evolve. My journey has taken me from shaping polished user
             experiences to architecting the systems and logic that power them. I
             enjoy connecting the dots between thoughtful design, clean
             architecture, and robust engineering.
           </p>
           <p className="text-muted-foreground leading-relaxed dark:text-gray-300 text-md">
             For me, development is more than writing code. It’s about
-            understanding the problem, questioning the obvious, exploring with
-            new ideas. Lately, I’ve been exploring and experimenting with AI,
+            understanding the problem, questioning the obvious, exploring new
+            ideas. Lately, I’ve been exploring and experimenting with AI,
             learning not just how the technology works, but also how to use it
             effectively in everyday development and life.
           </p>

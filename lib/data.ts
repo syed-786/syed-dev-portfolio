@@ -55,8 +55,8 @@ import { FaCloud } from "react-icons/fa";
 
 export const stats = [
   { label: "Years of Experience", value: 7 },
-  { label: "Projects Completed", value: 25 },
-  { label: "Happy Clients", value: 15 },
+  { label: "Projects Completed", value: 20 },
+  { label: "Happy Clients", value: 12 },
   { label: "Technologies Explored", value: 20 },
 ];
 
@@ -292,7 +292,7 @@ and CSRF attacks.`,
   },
   {
     title: "Jeeves Admin Control Panel",
-    description: `Developed admin tools for managing users, catalogs, files, roles and adver campaigns.
+    description: `Developed admin tools for managing users, catalogs, files, roles and advertise campaigns.
     `,
     image: "/images/p2.jpg",
     techStack: ["React.js", "JavaScript", "Node.js", "Redux"],

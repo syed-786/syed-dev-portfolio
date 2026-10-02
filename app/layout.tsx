@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Syed Adeeb Ahmad is a Senior Full Stack Developer with 8+ years of experience building scalable, high-performance web applications with React, Next.js, TypeScript, Node.js and modern web technologies.",
+    "Syed Adeeb Ahmad is a Senior Full Stack Developer with 8 years of experience building scalable, high-performance web applications with React, Next.js, TypeScript, Node.js and modern web technologies.",
 
   keywords: [
     "Syed Adeeb Ahmad",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Syed Adeeb Ahmad | Senior Full Stack Developer",
 
     description:
-      "Senior Full Stack Developer with 8+ years of experience building scalable and high-performance web applications with React, Next.js, TypeScript and Node.js.",
+      "Senior Full Stack Developer with 8 years of experience building scalable and high-performance web applications with React, Next.js, TypeScript and Node.js.",
 
     siteName: "Syed Adeeb Ahmad",
 
