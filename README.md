@@ -1,3 +1,22 @@
+# Syed Ahmad – Developer Portfolio
+
+A modern, responsive developer portfolio built with **Next.js, TypeScript, and Tailwind CSS**, showcasing my experience as a **Senior Full Stack Engineer** with 7+ years of expertise in building scalable, high‑performance applications.
+
+This portfolio highlights my projects, skills, and professional journey, while providing recruiters and collaborators with a clear overview of my technical strengths.
+
+---
+
+## 🚀 Features
+
+- 🌗 **Dark/Light Theme** support with animated particle.js backgrounds
+- 📂 **Project Showcase** with GitHub and demo links
+- 📊 **Animated Stats** using CountUp + Intersection Observer
+- 🛠️ **Skills Section** covering frontend, backend, and AI tools
+- 📄 **Downloadable CV** with secure hosting
+- 🔗 **Contact & Social Links** for networking
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
