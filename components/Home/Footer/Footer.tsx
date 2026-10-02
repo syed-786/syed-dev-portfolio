@@ -12,7 +12,7 @@ const Footer = () => {
 
         {/* Attribution */}
         <div className="text-sm text-gray-600 dark:text-gray-400">
-          <p>© 2026 Syed Adeeb Ahmad</p>
+          <p>©{new Date().getFullYear()} Syed Adeeb Ahmad</p>
           <p>All rights reserved.</p>
         </div>
       </div>
