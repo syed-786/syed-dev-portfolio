@@ -64,9 +64,10 @@ const Nav = ({ openMobileNav }: NavProps) => {
         {/* Right side actions */}
         <div className="flex items-center space-x-3 sm:space-x-4">
           <a
-            href="/files/Syed_Adeeb_IND-CV.pdf"
-            // target="_blank"
-            download="Syed_Adeeb_IND-CV.pdf"
+            // href="/files/Syed_Adeeb_IND-CV.pdf"
+            href="/files/Syed_FullStk_IND-CV.pdf"
+            // download="Syed_Adeeb_IND-CV.pdf"
+            download="Syed_FullStk_IND-CV.pdf"
             rel="noopener noreferrer"
             className="box-border relative z-20 inline-flex items-center justify-center w-auto px-5
              sm:px-5 py-2 overflow-hidden font-bold text-white transition-all duration-300 bg-indigo-600

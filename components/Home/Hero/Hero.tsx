@@ -265,7 +265,7 @@ const Hero = () => {
 
           <Button asChild size="lg" className="w-fit mx-auto sm:mx-0 px-7 py-5">
             <a
-              href="/files/Syed_Adeeb_IND-CV.pdf"
+              href="/files/Syed_FullStk_IND-CV.pdf"
               target="_blank"
               // download="Syed_Adeeb_IND-CV.pdf"
               rel="noopener noreferrer"

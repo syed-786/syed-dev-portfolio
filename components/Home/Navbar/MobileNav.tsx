@@ -12,7 +12,7 @@ type NavProps = {
 
 const MobileNav = ({ isMobileNavOpen, closeMobileNav }: NavProps) => {
   const mobileNavClass = isMobileNavOpen
-    ? "translate-x-0"
+    ? "translate-x-0 "
     : "-translate-x-full";
 
   return (
@@ -30,7 +30,7 @@ const MobileNav = ({ isMobileNavOpen, closeMobileNav }: NavProps) => {
         className={`fixed top-0 left-0 h-full w-[80%] sm:w-[60%] md:w-[40%]
         transform transition-transform duration-500 z-50 ${mobileNavClass}
         bg-gradient-to-b from-blue-50 to-white dark:from-[#0a0a12] dark:via-[#190a2a] dark:to-[#140022]
-        backdrop-blur-xl shadow-2xl flex flex-col justify-start pt-12 space-y-8`}
+        backdrop-blur-xl shadow-2xl flex flex-col  justify-start pt-12 space-y-8`}
       >
         {/* Logo */}
         <div className="flex items-center space-x-3 px-12 mb-6">
@@ -47,10 +47,12 @@ const MobileNav = ({ isMobileNavOpen, closeMobileNav }: NavProps) => {
               scrollToSection(link.id);
               closeMobileNav();
             }}
-            className="block w-full ml-12 text-lg sm:text-xl font-semibold
+            // style={{ border: "1px solid red" }}
+            className={`block  ml-12 text-lg sm:text-xl font-semibold
                        text-gray-700 dark:text-gray-200
+                       ${isMobileNavOpen ? "visible" : "hidden"} 
                        hover:text-blue-600 dark:hover:text-violet-400
-                       transition-colors duration-300  w-fit pb-1"
+                       transition-colors duration-300 pb-1 border-2`}
           >
             {link.name}
           </Link>

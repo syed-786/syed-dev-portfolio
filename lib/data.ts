@@ -302,7 +302,7 @@ Improved UI consistency and frontend maintainability using Tailwind CSS and comp
   {
     title: "Learning Management System",
     description:
-      "Educational platform with video streaming, quizzes, progress tracking, & certificates.",
+      "Educational platform with quizzes, progress tracking, & certificates.",
     image: "/images/p6.jpg",
     techStack: ["Next.js", "Tailwind CSS", "Redux", "JavaScript"],
     demoUrl: "https://example.com",
