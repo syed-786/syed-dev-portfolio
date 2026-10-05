@@ -52,7 +52,7 @@ const MobileNav = ({ isMobileNavOpen, closeMobileNav }: NavProps) => {
                        text-gray-700 dark:text-gray-200
                        ${isMobileNavOpen ? "visible" : "hidden"} 
                        hover:text-blue-600 dark:hover:text-violet-400
-                       transition-colors duration-300 pb-1 border-2`}
+                       transition-colors duration-300 pb-1`}
           >
             {link.name}
           </Link>

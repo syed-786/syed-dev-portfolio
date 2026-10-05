@@ -242,7 +242,7 @@ const Hero = () => {
         <p
           data-aos="fade-up"
           data-aos-delay="300"
-          className="text-lg text-muted-foreground dark:text-gray-200 max-w-2xl mx-auto mb-10"
+          className="text-lg text-muted-foreground dark:text-gray-200 w-[90%] md:max-w-2xl mx-auto mb-10"
         >
           {
             "Transforming creative ideas into high-performance digital experiences through thoughtful engineering, modern technologies & a passion to build, refine, & create."
