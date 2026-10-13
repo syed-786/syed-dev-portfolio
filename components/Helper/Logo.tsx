@@ -1,12 +1,13 @@
 import { CodeSquareIcon } from "lucide-react";
 import React from "react";
-
+import { useRouter } from "next/navigation";
 type LogoProps = {
   showText?: boolean; // control whether "<Syed/>" is always visible
   size?: "sm" | "md" | "lg"; // optional sizing for different contexts
 };
 
 const Logo = ({ showText = false, size = "md" }: LogoProps) => {
+  const router = useRouter();
   // dynamic sizing
   const iconSize =
     size === "sm" ? "w-5 h-5" : size === "lg" ? "w-8 h-8" : "w-6 h-6";
@@ -19,8 +20,21 @@ const Logo = ({ showText = false, size = "md" }: LogoProps) => {
         ? "text-2xl md:text-3xl"
         : "text-xl md:text-2xl";
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="flex items-center space-x-2">
+    <div
+      onClick={() => {
+        router.push("/");
+        scrollToTop();
+      }}
+      className="flex items-center space-x-2 cursor-pointer"
+    >
       {/* Icon box */}
       <div
         className={`bg-blue-800 dark:bg-blue-400 ${boxSize} rounded-lg flex items-center justify-center`}

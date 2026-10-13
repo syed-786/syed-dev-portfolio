@@ -14,7 +14,7 @@ const SkillCard = ({ name, icon: Icon }: Props) => {
       perspective={1000}
       transitionSpeed={400}
       scale={1.05}
-      gyroscope={true}
+      // gyroscope={true}
       glareEnable={true} // adds a light glare effect
       glareMaxOpacity={0.7} // subtle glare
       glareColor="rgba(109,40,217,0.4)" // violet glow
