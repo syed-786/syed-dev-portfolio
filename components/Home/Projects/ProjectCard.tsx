@@ -1,107 +1,91 @@
-import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import type { PortfolioProject } from "@/lib/data";
+
 type Props = {
-  title: string;
-  description: string;
-  image: string;
-  techStack: string[];
-  demoUrl?: string;
-  githubUrl?: string;
-  index: number;
+  project: PortfolioProject;
+  // index: number;
 };
 
-const ProjectCard = ({
-  title,
-  description,
-  image,
-  techStack,
-  demoUrl,
-  githubUrl,
-  index,
-}: Props) => {
+const ProjectCard = ({ project }: Props) => {
   return (
-    <div
-      className="group relative bg-white dark:bg-[#150f20] 
-      shadow-md rounded-2xl overflow-hidden 
-      transition-all duration-300 hover:scale-[1.04] 
-      dark:hover:shadow-[0_0_8px_rgba(109,40,217,0.35)]  
-      h-full flex flex-col"
+    <article
+      className="
+        group relative flex h-full flex-col overflow-hidden
+        rounded-2xl border border-gray-200/80
+        bg-white shadow-md
+        transition-all duration-300
+        hover:-translate-y-1 hover:shadow-xl
+        dark:border-white/10 dark:bg-[#150f20]
+        dark:hover:shadow-[0_0_20px_rgba(109,40,217,0.18)]
+      "
     >
-      {/* Image container */}
-      <div className="relative h-40 overflow-hidden">
+      <Link
+        href={`/projects/${project.slug}`}
+        aria-label={`View case study: ${project.title}`}
+        className="relative block h-48 overflow-hidden bg-gray-100 dark:bg-[#0d0a16]"
+      >
         <Image
-          src={image}
-          alt={title}
-          width={400}
-          height={400}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          src={project.image}
+          alt={`${project.title} project`}
+          width={800}
+          height={480}
+          className="
+            h-full w-full object-cover
+            transition-transform duration-500
+            group-hover:scale-105
+          "
+          sizes="(max-width: 768px) 90vw, (max-width: 1024px) 45vw, 27vw"
         />
-      </div>
 
-      {/* main content */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3
-          className="text-lg text-black dark:text-gray-100 font-semibold mb-2 
-            transition-colors"
-        >
-          {title}
+        <span className="absolute left-3 top-3 rounded-full border border-white/20 bg-black/65 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+          {project.category}
+        </span>
+      </Link>
+
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
+          {project.Stitle}
         </h3>
 
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 flex-grow">
-          {description}
+        <p className="line-clamp-2 text-sm leading-6 text-gray-600 dark:text-gray-400 mb-2">
+          {project.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-5">
-          {techStack.map((tech) => (
+        <div
+          className="mb-6 flex flex-wrap gap-2"
+          aria-label="Technologies used"
+        >
+          {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="text-xs px-2 py-1 rounded-md 
-              bg-indigo-500 text-white 
-              dark:bg-violet-700/60  font-medium"
+              className="
+                rounded-md border border-indigo-200/70
+                bg-indigo-50 px-2.5 py-1
+                text-xs font-medium text-indigo-600
+                dark:border-violet-500/20
+                dark:bg-violet-700/20 dark:text-violet-300
+              "
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {/* buttons */}
-        <div className="flex gap-3 mt-auto">
-          {demoUrl && (
-            <Button
-              asChild
-              size="sm"
-              className="flex-1 px-4 py-4 text-sm font-medium"
-            >
-              <Link
-                href={`/coming-soon?id=p${index + 1}`}
-                // target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                Preview
-              </Link>
-            </Button>
-          )}
-          {/* {githubUrl && (
-            <Button
-              asChild
-              variant="outline"
-              size="sm"
-              className="flex-1 px-4 py-4 text-sm font-medium "
-            >
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <FaGithub className="w-4 h-4 mr-2" />
-                Github
-              </a>
-            </Button>
-          )} */}
-        </div>
+        <Button
+          asChild
+          className="group/button w-full justify-between"
+          variant="outline"
+        >
+          <Link href={`/projects/${project.slug}`}>
+            <span>View Case Study</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover/button:translate-x-0.5 group-hover/button:-translate-y-0.5" />
+          </Link>
+        </Button>
       </div>
-    </div>
+    </article>
   );
 };
 
