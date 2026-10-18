@@ -7,6 +7,7 @@ import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 import MagicCursor from "@/components/Helper/MagicMouse";
 import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
+import AIChat from "@/components/ChatUI/ChatComponent";
 
 const font = Inter({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -96,6 +97,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <Footer />
           <ScrollToTop />
+          <AIChat />
         </Provider>
         <Analytics />
       </body>
