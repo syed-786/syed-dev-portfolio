@@ -18,42 +18,15 @@ const profile = {
   },
 
   professionalSummary: `
-  Syed Adeeb Ahmad is a passionate, Full Stack
-  Developer with around 7+ years of experience building modern,
-  scalable, and high-performance web applications.
+  Syed Adeeb Ahmad is a passionate Full Stack Developer with 7+ years of experience building modern, scalable, and high-performance web applications.
 
-  His expertise spans full-stack web development, with strong
-  proficiency in React.js, Next.js, Node.js, Express.js,
-  JavaScript, TypeScript, and MongoDB. He specializes in
-  building scalable, high-performance applications, from
-  intuitive user interfaces and modern frontend architectures
-  to robust backend systems, RESTful APIs, and database solutions.
+Proficient in React.js, Next.js, Node.js, Express.js, JavaScript, TypeScript, and MongoDB, he specializes in developing intuitive user interfaces, scalable frontend architectures, robust backend systems, RESTful APIs, and database solutions.
 
-  Throughout his career, he has contributed to enterprise
-  applications across fintech, e-commerce, and EdTech,
-  building intuitive user experiences, reusable components,
-  scalable application architectures, state management
-  solutions, and API integrations.
+He has contributed to enterprise applications across fintech, e-commerce, and EdTech, focusing on reusable components, state management, seamless API integrations, and maintainable architecture.
 
-  He enjoys turning creative ideas into meaningful digital
-  experiences, connecting thoughtful design, clean architecture,
-  and robust engineering. His approach goes beyond writing code:
-  he values understanding problems deeply, questioning
-  assumptions, exploring possibilities, and finding practical,
-  maintainable solutions.
+Driven by curiosity and thoughtful engineering, Syed enjoys transforming creative ideas into meaningful digital experiences. He values understanding problems deeply, exploring possibilities, and building practical solutions designed to evolve.
 
-  Curious by nature, Syed loves to explore, learn, and create.
-  He continuously experiments with emerging technologies
-  and new approaches to software development.
-
-  Recently, he has been exploring AI technologies and AI-assisted
-  development, learning how modern AI systems work and how
-  they can be applied effectively to real-world applications,
-  everyday development workflows, and life.
-
-  He believes great software is not just about making things
-  work, but about creating experiences that are thoughtfully
-  engineered, built to evolve, and designed to make a difference.
+Passionate about continuous learning, he is also exploring AI technologies and AI-assisted development to enhance real-world applications, development workflows, and everyday life.
 `,
 
   workExperience: [
@@ -241,9 +214,8 @@ const profile = {
 
   contactGuidance: `
     Direct visitors to the portfolio's available contact options.
-    Do not invent an email address, phone number, or social profile,employment history, dates, achievements, metrics, or qualifications.
+    Do not invent an email address, phone number, or social profile,employment history.
     If a detail is unknown, say so and offer a relevant link or contact route.,
-    Distinguish professional experience from personal projects and ongoing learning.
   `,
 };
 

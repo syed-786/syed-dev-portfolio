@@ -1,55 +1,114 @@
-# Syed Ahmad – Developer Portfolio
+# Developer Portfolio | Next.js & Aruba AI
 
-A modern, responsive developer portfolio built with **Next.js, TypeScript, and Tailwind CSS**, showcasing my experience as a **Senior Full Stack Engineer** with 7+ years of expertise in building scalable, high‑performance applications.
+A modern, responsive developer portfolio showcasing my work as a **Senior Full-Stack Engineer**
+with **7+ years of experience** building scalable, high-performance web applications.
 
-This portfolio highlights my projects, skills, and professional journey, while providing recruiters and collaborators with a clear overview of my technical strengths.
+The portfolio brings together selected projects, professional experience, technical skills, and **Aruba AI** — an interactive AI assistant that helps visitors explore my background and work.
 
----
+**Live portfolio:** [syed-dev-portfolios.vercel.app](https://syed-dev-portfolios.vercel.app/)
 
-## 🚀 Features
+## ✨ Highlights
 
-- 🌗 **Dark/Light Theme** support with animated particle.js backgrounds
-- 📂 **Project Showcase** with GitHub and demo links
-- 📊 **Animated Stats** using CountUp + Intersection Observer
-- 🛠️ **Skills Section** covering frontend, backend, and AI tools
-- 📄 **Downloadable CV** with secure hosting
-- 🔗 **Contact & Social Links** for networking
+- **Responsive interface** — polished desktop and mobile experiences with light and dark themes.
+- **Project case studies** — selected work, technical stacks, and engineering contributions.
+- **Interactive experience** — animations, particle effects, and animated statistics.
+- **Aruba AI** — a conversational assistant available through a floating chat widget and a dedicated page.
+- **Production-oriented backend** — server-side AI requests, request validation, rate limiting, and usage controls.
+- **Search and accessibility considerations** — SEO metadata and responsive, semantic UI patterns.
 
----
+## 🤖 Aruba AI
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+**Aruba AI** is a portfolio-focused conversational assistant built into the Next.js application. Visitors can ask about my experience, technical skills, projects, and professional background.
 
-## Getting Started
+### Technical capabilities
 
-First, run the development server:
+- **Google Gemini integration** through the **Vercel AI SDK**.
+- **Streaming chat responses** for a conversational user experience.
+- **Portfolio-grounded responses** using structured knowledge and assistant instructions.
+- **Context caching** to reduce repeated input processing where supported.
+- **Upstash Redis** for request rate limiting and shared usage/quota tracking.
+- **Token budgeting and conversation-history controls** to manage resource usage.
+- **Server-side API integration** so provider credentials are not sent to the browser.
+
+> Aruba is a portfolio assistant, not a general-purpose AI agent or retrieval-augmented generation (RAG) platform. Its purpose is to answer questions about the portfolio and professional background.
+
+## 🛠️ Technology Stack
+
+| Area                           | Technologies                             |
+| ------------------------------ | ---------------------------------------- |
+| Frontend                       | Next.js, React, TypeScript, Tailwind CSS |
+| Backend                        | Next.js Route Handlers, Node.js runtime  |
+| AI                             | Google Gemini, Vercel AI SDK             |
+| Rate limiting & usage controls | Upstash Redis                            |
+| Deployment                     | Vercel                                   |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js and npm compatible with the project's Next.js version
+- A Google Gemini API key
+- Upstash Redis REST credentials for the AI chat's rate limiting and usage controls
+
+### Install and run
+
+```bash
+npm install
+```
+
+Create a `.env.local` file in the project root:
+
+```dotenv
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key
+UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
+```
+
+The variable names above are the standard names used by the Gemini provider and Upstash Redis integration. If your local implementation uses additional environment variables, configure those as well.
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open **http://localhost:3000**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## 🔐 Security and Environment Configuration
 
-To learn more about Next.js, take a look at the following resources:
+- Keep `.env.local` and all API keys out of version control.
+- Configure production secrets through **Vercel → Project Settings → Environment Variables**.
+- Use a **separate Google Cloud project/API key** for production to reduce interference with development usage.
+- Redis credentials can be shared temporarily across environments, but doing so also shares Redis counters and usage limits unless keys are explicitly namespaced.
+- Never expose provider credentials through `NEXT_PUBLIC_` variables or client-side components.
+- Avoid logging credentials, complete conversations, or confidential data.
+- Treat system prompts as application instructions, **not** as a substitute for server-side security enforcement.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A public GitHub repository exposes any prompt or knowledge files committed to it, including historical versions. Review these files before publishing.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ☁️ Deployment
 
-## Deploy on Vercel
+The portfolio is deployed on **Vercel**. To deploy your own instance:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Connect the GitHub repository to a Vercel project.
+2. Configure the required server-side environment variables for **Production**.
+3. Deploy the production branch.
+4. Test the homepage, project case studies, Aruba chat widget, and dedicated Aruba page on desktop and mobile.
+5. Review server-side activity under the project's **Vercel Logs**, including chat request errors and latency.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The Aruba API route's execution duration can be configured using Next.js's `maxDuration` export, subject to the deployment platform's limits. Longer execution limits do not necessarily make AI responses faster.
+
+## 📬 Connect
+
+Interested in collaborating or discussing frontend, full-stack, or AI-enabled web development? Visit the [live portfolio](https://syed-dev-portfolios.vercel.app/) for contact details and professional links.
+
+---
+
+Built with **Next.js, TypeScript, and a passion for thoughtful engineering**.

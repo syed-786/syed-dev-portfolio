@@ -29,7 +29,7 @@ import {
   reserveInputTokens,
 } from "@/lib/aruba/rate-limit";
 
-export const maxDuration = 30;
+export const maxDuration = 60;
 
 /**
  * Return a friendly JSON error without exposing
@@ -93,6 +93,15 @@ function getPublicStreamError(error: unknown): string {
 }
 
 export async function POST(req: Request) {
+  const requestStartedAt = performance.now();
+  const debugTiming = process.env.NODE_ENV === "development";
+  const elapsedMs = () => Math.round(performance.now() - requestStartedAt);
+  const logTiming = (stage: string, extra: Record<string, unknown> = {}) => {
+    if (debugTiming) {
+      console.log("Aruba timing:", { stage, elapsedMs: elapsedMs(), ...extra });
+    }
+  };
+
   try {
     // 1. Per-visitor rate limiting.
     // Only trust forwarded IP headers when the
@@ -108,6 +117,7 @@ export async function POST(req: Request) {
 
     try {
       limitResult = await ratelimit.limit(ip);
+      logTiming("visitor-rate-limit");
 
       if (process.env.NODE_ENV === "development") {
         console.log("Aruba rate limit:", {
@@ -252,6 +262,7 @@ export async function POST(req: Request) {
     // 7. Global Gemini request and token budgets.
     try {
       const minute = await globalRpmLimit.limit("all-visitors");
+      logTiming("global-rpm-limit");
 
       if (!minute.success) {
         return apiError(
@@ -262,6 +273,7 @@ export async function POST(req: Request) {
       }
 
       const daily = await checkDailyQuota();
+      logTiming("daily-quota");
 
       if (!daily.success) {
         return apiError(
@@ -280,6 +292,7 @@ export async function POST(req: Request) {
       }
 
       const tokenBudget = await reserveInputTokens(MAX_RESERVED_INPUT_TOKENS);
+      logTiming("input-token-reservation");
 
       if (!tokenBudget.success) {
         return apiError(
@@ -306,8 +319,11 @@ export async function POST(req: Request) {
 
     // 8. Convert validated history to model messages.
     const modelMessages = await convertToModelMessages(messages);
+    logTiming("messages-converted");
 
     // 9. Generate the streamed Gemini response.
+    const generationStartedAt = performance.now();
+    logTiming("gemini-request-start");
     const result = streamText({
       model: google("gemini-3.5-flash-lite"),
       system: ARUBA_FULL_PROMPT,
@@ -315,6 +331,9 @@ export async function POST(req: Request) {
       maxOutputTokens: MAX_OUTPUT_TOKENS,
 
       onFinish({ usage, finishReason }) {
+        logTiming("gemini-finished", {
+          generationMs: Math.round(performance.now() - generationStartedAt),
+        });
         const inputTokens = usage.inputTokens;
 
         if (process.env.NODE_ENV === "development") {
@@ -339,10 +358,26 @@ export async function POST(req: Request) {
       },
     });
 
-    // 10. Return the assistant-ui-compatible stream.
+    // 10. Measure the first generated text without changing the stream contents.
+    // A transform passes each SDK stream part through unchanged.
+    let firstTextLogged = false;
+    const measuredStream = result.stream.pipeThrough(
+      new TransformStream({
+        transform(part, controller) {
+          if (!firstTextLogged && part.type === "text-delta") {
+            firstTextLogged = true;
+            logTiming("gemini-first-text", {
+              generationMs: Math.round(performance.now() - generationStartedAt),
+            });
+          }
+          controller.enqueue(part);
+        },
+      }),
+    );
+
     return createUIMessageStreamResponse({
       stream: toUIMessageStream({
-        stream: result.stream,
+        stream: measuredStream,
         onError: getPublicStreamError,
       }),
     });
