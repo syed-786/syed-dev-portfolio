@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { Navlinks } from "../../../Constant/Constant";
 import Link from "next/link";
-import { X, CodeSquareIcon } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { X } from "lucide-react";
 import Logo from "@/components/Helper/Logo";
 import { scrollToSection } from "@/lib/utils";
 
@@ -11,9 +14,35 @@ type NavProps = {
 };
 
 const MobileNav = ({ isMobileNavOpen, closeMobileNav }: NavProps) => {
+  const pathname = usePathname();
+
   const mobileNavClass = isMobileNavOpen
-    ? "translate-x-0 "
+    ? "translate-x-0"
     : "-translate-x-full";
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+  ) => {
+    // On homepage, preserve smooth scrolling.
+    if (pathname === "/") {
+      e.preventDefault();
+
+      if (id === "home") {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      } else {
+        scrollToSection(id);
+      }
+    }
+
+    // On other pages, allow Next.js to navigate
+    // to /#section-id.
+
+    closeMobileNav();
+  };
 
   return (
     <>
@@ -28,42 +57,49 @@ const MobileNav = ({ isMobileNavOpen, closeMobileNav }: NavProps) => {
       {/* Drawer */}
       <div
         className={`fixed top-0 left-0 h-full w-[80%] sm:w-[60%] md:w-[40%]
-        transform transition-transform duration-500 z-50 ${mobileNavClass}
-        bg-gradient-to-b from-blue-50 to-white dark:from-[#0a0a12] dark:via-[#190a2a] dark:to-[#140022]
-        backdrop-blur-xl shadow-2xl flex flex-col  justify-start pt-12 space-y-8`}
+          transform transition-transform duration-500 z-50 ${mobileNavClass}
+          bg-gradient-to-b from-blue-50 to-white
+          dark:from-[#0a0a12] dark:via-[#190a2a] dark:to-[#140022]
+          backdrop-blur-xl shadow-2xl flex flex-col justify-start
+          pt-12 space-y-8`}
       >
         {/* Logo */}
         <div className="flex items-center space-x-3 px-12 mb-6">
           <Logo showText={true} size="md" />
         </div>
 
-        {/* Links */}
-        {Navlinks.map((link, index) => (
-          <Link
-            key={index}
-            href={link.href}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection(link.id);
-              closeMobileNav();
-            }}
-            // style={{ border: "1px solid red" }}
-            className={`block  ml-12 text-lg sm:text-xl font-semibold
-                       text-gray-700 dark:text-gray-200
-                       ${isMobileNavOpen ? "visible" : "hidden"} 
-                       hover:text-blue-600 dark:hover:text-violet-400
-                       transition-colors duration-300 pb-1`}
-          >
-            {link.name}
-          </Link>
-        ))}
+        {/* Navigation Links */}
+        {Navlinks.map((link) => {
+          const href = link.id === "home" ? "/" : `/#${link.id}`;
 
-        {/* Close Icon */}
-        <X
+          return (
+            <Link
+              key={link.id}
+              href={href}
+              onClick={(e) => handleNavClick(e, link.id)}
+              className={`block ml-12 text-lg sm:text-xl font-semibold
+                text-gray-700 dark:text-gray-200
+                ${isMobileNavOpen ? "visible" : "hidden"}
+                hover:text-blue-600 dark:hover:text-violet-400
+                transition-colors duration-300 pb-1`}
+            >
+              {link.name}
+            </Link>
+          );
+        })}
+
+        {/* Close Button */}
+        <button
+          type="button"
           onClick={closeMobileNav}
-          className="absolute top-4 right-4 w-7 h-7 sm:w-8 sm:h-8
-                     text-gray-700 dark:text-gray-200 cursor-pointer hover:text-red-500 transition-colors"
-        />
+          aria-label="Close navigation menu"
+          className="absolute top-4 right-4
+            text-gray-700 dark:text-gray-200
+            cursor-pointer hover:text-red-500
+            transition-colors"
+        >
+          <X className="w-7 h-7 sm:w-8 sm:h-8" />
+        </button>
       </div>
     </>
   );

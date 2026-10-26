@@ -1,57 +1,18 @@
 import {
   Briefcase,
-  Cloud,
-  Code2,
   Coffee,
-  Cpu,
-  Database,
-  GitBranch,
-  Globe,
   GraduationCap,
-  Layers,
-  Layout,
   Mail,
   MapPin,
-  Palette,
   Phone,
-  Server,
-  Smartphone,
-  Terminal,
   MessageCircleCheck,
 } from "lucide-react";
 
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa6";
 
-import {
-  SiJavascript,
-  SiTypescript,
-  SiReact,
-  SiNextdotjs,
-  SiRedux,
-  SiReactquery,
-  SiMui,
-  SiTailwindcss,
-  SiHtml5,
-  SiCss,
-  SiTestinglibrary,
-  SiNodedotjs,
-  SiExpress,
-  SiMongodb,
-  SiPostgresql,
-  SiGraphql,
-  SiSocketdotio,
-  SiJsonwebtokens,
-  SiRedis,
-  SiGithubcopilot,
-  SiGit,
-  SiDocker,
-  SiFigma,
-  SiGithubactions,
-  SiPostman,
-  SiVite,
-} from "react-icons/si";
-
 import { FaCloud } from "react-icons/fa";
+
+export { skillCategories } from "./skills-data";
 
 export const stats = [
   { label: "Years of Experience", value: 7 },
@@ -71,7 +32,7 @@ export const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "syed.cdac786@gmail.com",
+    value: "syed.dev7867@gmail.com",
     href: "mailto:syed.cdac786@gmail.com?subject=Job%20Opportunity&body=Hello%20Syed,%20I%20would%20like%20to%20discuss%20a%20job%20opportunity%20with%20you.",
   },
   {
@@ -310,53 +271,53 @@ Improved UI consistency and frontend maintainability using Tailwind CSS and comp
   },
 ];
 
-export const skillCategories = [
-  {
-    title: "Frontend",
-    skills: [
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "React.js", icon: SiReact },
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "Redux", icon: SiRedux },
-      { name: "Zustand", icon: SiJavascript },
-      { name: "TanStack Query", icon: SiReactquery },
-      { name: "Material UI", icon: SiMui },
-      { name: "Tailwind CSS", icon: SiTailwindcss },
-      { name: "HTML5", icon: SiHtml5 },
-      { name: "CSS3", icon: SiCss },
-      { name: "React Testing Library", icon: SiTestinglibrary },
-    ],
-  },
-  {
-    title: "Backend",
-    skills: [
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express", icon: SiExpress },
-      { name: "MongoDB", icon: SiMongodb },
-      //   { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "GraphQL", icon: SiGraphql },
-      { name: "REST APIs", icon: FaCloud },
-      //   { name: "Socket.io", icon: SiSocketdotio },
-      { name: "JWT", icon: SiJsonwebtokens },
-      { name: "Redis", icon: SiRedis },
-    ],
-  },
-  {
-    title: "Tools & AI",
-    skills: [
-      { name: "GitHub Copilot", icon: SiGithubcopilot },
-      { name: "ChatGPT", icon: SiJavascript },
-      { name: "Claude Code", icon: Code2 },
-      { name: "Git", icon: SiGit },
-      { name: "Docker", icon: SiDocker },
-      { name: "Postman", icon: SiPostman },
-      { name: "Vite", icon: SiVite },
-      { name: "Figma", icon: SiFigma },
-      { name: "CI/CD", icon: SiGithubactions },
-    ],
-  },
-];
+// export const skillCategories = [
+//   {
+//     title: "Frontend",
+//     skills: [
+//       { name: "JavaScript", icon: SiJavascript },
+//       { name: "TypeScript", icon: SiTypescript },
+//       { name: "React.js", icon: SiReact },
+//       { name: "Next.js", icon: SiNextdotjs },
+//       { name: "Redux", icon: SiRedux },
+//       { name: "Zustand", icon: SiJavascript },
+//       { name: "TanStack Query", icon: SiReactquery },
+//       { name: "Material UI", icon: SiMui },
+//       { name: "Tailwind CSS", icon: SiTailwindcss },
+//       { name: "HTML5", icon: SiHtml5 },
+//       { name: "CSS3", icon: SiCss },
+//       { name: "React Testing Library", icon: SiTestinglibrary },
+//     ],
+//   },
+//   {
+//     title: "Backend",
+//     skills: [
+//       { name: "Node.js", icon: SiNodedotjs },
+//       { name: "Express", icon: SiExpress },
+//       { name: "MongoDB", icon: SiMongodb },
+//       //   { name: "PostgreSQL", icon: SiPostgresql },
+//       { name: "GraphQL", icon: SiGraphql },
+//       { name: "REST APIs", icon: FaCloud },
+//       //   { name: "Socket.io", icon: SiSocketdotio },
+//       { name: "JWT", icon: SiJsonwebtokens },
+//       { name: "Redis", icon: SiRedis },
+//     ],
+//   },
+//   {
+//     title: "Tools & AI",
+//     skills: [
+//       { name: "GitHub Copilot", icon: SiGithubcopilot },
+//       { name: "ChatGPT", icon: SiJavascript },
+//       { name: "Claude Code", icon: Code2 },
+//       { name: "Git", icon: SiGit },
+//       { name: "Docker", icon: SiDocker },
+//       { name: "Postman", icon: SiPostman },
+//       { name: "Vite", icon: SiVite },
+//       { name: "Figma", icon: SiFigma },
+//       { name: "CI/CD", icon: SiGithubactions },
+//     ],
+//   },
+// ];
 
 export type CaseStudySection = {
   title: string;
@@ -385,6 +346,509 @@ export type PortfolioProject = {
 
 export const projects: PortfolioProject[] = [
   {
+    slug: "aruba-ai-assistant",
+    title: "Aruba AI — Intelligent Portfolio Assistant",
+    Stitle: "Aruba AI Assistant",
+    shortTitle: "Aruba AI",
+    category: "AI-Powered Full-Stack Application",
+
+    description:
+      "An intelligent, LLM-powered AI assistant built with Google Gemini, featuring real-time AI response streaming, contextual knowledge, Redis-backed distributed rate limiting, token budgeting, and optimized context caching.",
+
+    image: "/images/aruba-ai-img.jpg",
+
+    techStack: [
+      "Next.js",
+      "React.js",
+      "Node.js",
+      "TS",
+      "Tailwind CSS",
+      "Vercel AI SDK",
+      "Google Gemini",
+      "Redis",
+      "Streaming APIs",
+    ],
+
+    role: "Personal Project — Full-Stack Development & AI Engineering",
+
+    demoUrl: "/aruba-ai",
+    githubUrl: "https://github.com/syed-786/syed-dev-portfolio",
+
+    overview:
+      "Aruba is an LLM-powered conversational AI assistant built with Google Gemini and integrated into a production-deployed developer portfolio, transforming a traditional portfolio into an interactive, AI-powered experience. Visitors can ask natural-language questions about professional experience, technical skills, projects, and engineering background instead of manually navigating multiple pages. Built with Next.js, React, TypeScript, Google Gemini, and the Vercel AI SDK, Aruba combines a responsive streaming chat interface with a server-side AI architecture. The backend incorporates Upstash Redis for distributed rate limiting, request quotas, and token-budget management, alongside Gemini context caching to optimize repeated model input processing. The project demonstrates practical full-stack AI engineering, API security, concurrency control, resource management, and production deployment.",
+
+    contributions: [
+      "Architected and developed an AI-powered conversational assistant using Next.js App Router, React, TypeScript, and Tailwind CSS.",
+
+      "Integrated Google Gemini through the Vercel AI SDK for contextual natural-language conversations.",
+
+      "Implemented a server-side AI API route using the Next.js Node.js runtime.",
+
+      "Built real-time response streaming using streamText and the AI SDK's UI message streaming utilities.",
+
+      "Developed a responsive chat interface with conversation history, loading states, error handling, and incremental response rendering.",
+
+      "Created a structured portfolio knowledge base containing professional experience, technical skills, education, and project-specific information.",
+
+      "Engineered system instructions defining Aruba's identity, conversational behavior, knowledge boundaries, and security guidelines.",
+
+      "Integrated Upstash Redis to maintain shared API usage state across serverless function instances.",
+
+      "Implemented distributed rate limiting using Upstash Ratelimit and Redis-backed sliding-window algorithms.",
+
+      "Configured layered API protection with per-user, global, and daily usage limits.",
+
+      "Developed Redis-backed token-per-minute budgeting using atomic Lua operations to handle concurrent requests safely.",
+
+      "Implemented Gemini implicit context caching to optimize repeated processing of stable portfolio knowledge and system instructions.",
+
+      "Validated context caching behavior through runtime usage logs reporting cached input tokens.",
+
+      "Implemented request validation, conversation length restrictions, payload-size limits, and server execution time constraints.",
+
+      "Added safeguards against prompt injection, unrelated requests, and excessive AI API consumption.",
+
+      "Deployed Aruba through Vercel's serverless infrastructure and integrated it into the production portfolio.",
+    ],
+
+    engineeringHighlights: [
+      "Full-stack AI architecture: React and TypeScript frontend integrated with a server-side Next.js AI API.",
+
+      "LLM integration: Google Gemini accessed through the Vercel AI SDK for contextual response generation.",
+
+      "Real-time streaming: incremental AI responses delivered through streamText and UI message streaming utilities.",
+
+      "Knowledge-grounded prompting: structured portfolio data provides relevant context for model-generated responses.",
+
+      "Prompt engineering: carefully designed system instructions establish assistant behavior, knowledge scope, and response guidelines.",
+
+      "Distributed rate limiting: Upstash Redis and sliding-window algorithms enforce shared limits across serverless instances.",
+
+      "Layered API protection: per-user request limits, global request limits, and daily usage quotas.",
+
+      "Atomic token budgeting: Redis Lua operations coordinate token reservations across concurrent requests.",
+
+      "Gemini context caching: implicit caching optimizes repeated input processing, with cache hits verified through usage logs.",
+
+      "Serverless state management: Redis maintains shared quota and rate-limit counters across independent API executions.",
+
+      "API security: request validation, message limits, payload restrictions, and execution time constraints.",
+
+      "Resource optimization: request quotas, token budgets, and caching help control AI API usage.",
+
+      "Production deployment: Next.js server-side infrastructure hosted on Vercel.",
+    ],
+
+    outcome:
+      "A production-deployed AI assistant that transforms a conventional portfolio into an interactive conversational experience. Beyond LLM integration, Aruba demonstrates production-oriented backend engineering through Redis-backed distributed rate limiting, atomic token budgeting, layered API protection, and Gemini context caching. The application showcases practical expertise in full-stack JavaScript development, AI integration, streaming APIs, concurrency control, and serverless architecture.",
+
+    sections: [
+      {
+        title: "The Problem & Objective",
+
+        description:
+          "Traditional developer portfolios require visitors to navigate multiple pages to discover relevant information about experience, technical skills, and projects. Aruba AI was developed to simplify this process through natural-language interaction while demonstrating how modern LLM capabilities can be integrated into a production web application.",
+
+        bullets: [
+          "Enable visitors to explore professional information through conversation.",
+          "Provide contextual answers about experience, skills, and projects.",
+          "Reduce manual navigation across portfolio sections.",
+          "Demonstrate practical full-stack AI development.",
+          "Build a secure, responsive, and production-oriented AI experience.",
+        ],
+      },
+
+      {
+        title: "Frontend Architecture & Chat Experience",
+
+        description:
+          "Aruba's frontend is built using React, TypeScript, and Tailwind CSS within the Next.js application. The interface manages user input, conversation history, asynchronous request states, and incremental AI responses. Reusable components and theme-aware styling ensure that the assistant integrates consistently with the portfolio's existing design system.",
+
+        bullets: [
+          "Reusable React components for the conversational interface.",
+          "TypeScript-based message handling and component architecture.",
+          "Interactive message input and conversation history.",
+          "Incremental rendering of streamed assistant responses.",
+          "Loading states and error handling for asynchronous interactions.",
+          "Responsive layouts with light and dark theme support.",
+        ],
+      },
+
+      {
+        title: "Backend Architecture & API Design",
+
+        description:
+          "Aruba uses a Next.js App Router API route running in a server-side Node.js environment. Incoming requests pass through validation and resource-protection checks before conversation messages are converted into model-compatible input. The backend supplies portfolio knowledge and system instructions to Google Gemini through the Vercel AI SDK, then streams generated responses back to the frontend.",
+
+        bullets: [
+          "Next.js server-side API route using the Node.js runtime.",
+          "Request validation and conversation message processing.",
+          "Integration with Google Gemini through the Vercel AI SDK.",
+          "Conversion of UI messages into model-compatible messages.",
+          "Streaming response generation and delivery.",
+          "Redis-backed usage protection before model invocation.",
+          "Server-side handling of AI provider credentials.",
+        ],
+      },
+
+      {
+        title: "LLM Integration & Streaming Architecture",
+
+        description:
+          "Google Gemini powers Aruba's natural-language capabilities through the Vercel AI SDK. Rather than waiting for a complete model response, the backend streams generated content to the client as it becomes available. This improves perceived responsiveness and creates a conversational experience similar to modern AI chat applications.",
+
+        bullets: [
+          "Google Gemini integration through the Vercel AI SDK.",
+          "streamText for incremental response generation.",
+          "convertToModelMessages for conversation message conversion.",
+          "createUIMessageStreamResponse for streaming response handling.",
+          "toUIMessageStream for delivering generated content to the client.",
+          "Incremental rendering of AI responses in the React interface.",
+        ],
+      },
+
+      {
+        title: "Knowledge Grounding & Prompt Engineering",
+
+        description:
+          "Aruba uses a structured portfolio knowledge base containing professional experience, technical skills, education, and project information. This knowledge is supplied to the model alongside carefully designed system instructions that define the assistant's personality, supported topics, and response boundaries. The approach helps generate relevant answers grounded in actual portfolio information without requiring a separate vector database or retrieval pipeline.",
+
+        bullets: [
+          "Structured portfolio knowledge containing professional information.",
+          "Experience history, technical skills, and project contributions.",
+          "System instructions defining Aruba's identity and conversational tone.",
+          "Portfolio-focused response boundaries and behavior guidelines.",
+          "Conversation context management through message limits.",
+          "Prompt-injection safeguards and handling of unrelated requests.",
+        ],
+      },
+
+      {
+        title: "Distributed Rate Limiting with Upstash Redis",
+
+        description:
+          "Because Aruba runs on serverless infrastructure, in-memory rate limiting would not reliably coordinate requests across independent function instances. Upstash Redis provides shared state for distributed request tracking, while Upstash Ratelimit applies sliding-window algorithms to enforce API usage limits. Layered protection helps prevent excessive requests, resource abuse, and unnecessary model consumption.",
+
+        bullets: [
+          "Upstash Redis for shared rate-limit state across serverless instances.",
+          "Upstash Ratelimit with Redis-backed sliding-window algorithms.",
+          "Per-user limit of 15 requests within 5 minutes.",
+          "Global limit of 10 requests per minute.",
+          "Redis-backed daily usage quota tracking.",
+          "Centralized request protection before invoking Google Gemini.",
+        ],
+      },
+
+      {
+        title: "Token Budgeting & Concurrency Control",
+
+        description:
+          "Request-count limits alone cannot fully control LLM resource consumption because individual requests may contain different amounts of input text. Aruba therefore implements Redis-backed token-per-minute budgeting. Atomic Lua operations coordinate token reservations across concurrent requests, preventing multiple serverless executions from independently consuming the same available budget.",
+
+        bullets: [
+          "Shared token-per-minute budgeting through Redis.",
+          "Atomic token reservation using Redis Lua scripts.",
+          "INCRBY operations for updating token counters.",
+          "PEXPIREAT for managing counter expiration.",
+          "Concurrency-safe quota enforcement across serverless requests.",
+          "Additional protection against excessive model token consumption.",
+        ],
+      },
+
+      {
+        title: "Gemini Context Caching & Optimization",
+
+        description:
+          "Aruba repeatedly supplies stable portfolio knowledge and system instructions to Google Gemini. Gemini's implicit context caching can reuse eligible portions of previously processed input, reducing repeated token-processing overhead when cache hits occur. The integration was evaluated through runtime usage logs that confirmed cached input tokens, demonstrating practical optimization of LLM request processing.",
+
+        bullets: [
+          "Gemini implicit context caching for repeated model input.",
+          "Stable system instructions and portfolio knowledge as reusable context.",
+          "Reduced repeated processing when eligible cache hits occur.",
+          "Runtime verification through cached input-token usage logs.",
+          "Improved efficiency for repeated portfolio-related conversations.",
+          "Context optimization without a separate vector database.",
+        ],
+      },
+
+      {
+        title: "API Security & Resource Protection",
+
+        description:
+          "Publicly accessible AI endpoints require multiple layers of protection. Aruba combines request validation, payload restrictions, conversation limits, distributed rate limiting, daily quotas, and token budgeting to control API usage. System-level instructions also establish conversational boundaries, although prompt-level safeguards are treated as behavioral controls rather than complete security guarantees.",
+
+        bullets: [
+          "Maximum conversation history of 20 messages.",
+          "Maximum request payload size of 24,000 bytes.",
+          "Maximum server execution duration of 30 seconds.",
+          "Per-user and global distributed rate limiting.",
+          "Daily usage quotas and token-per-minute budgeting.",
+          "Server-side validation before model invocation.",
+          "System-level prompt-injection and scope-control instructions.",
+        ],
+      },
+
+      {
+        title: "Serverless Deployment & Infrastructure",
+
+        description:
+          "Aruba is deployed as part of the Next.js portfolio on Vercel. Its server-side API route communicates with Google Gemini while Upstash Redis provides shared state for rate limiting and usage management. This architecture supports independently executed serverless requests without relying on process-local counters for distributed protection.",
+
+        bullets: [
+          "Production deployment through Vercel.",
+          "Next.js server-side API infrastructure.",
+          "Google Gemini integration through server-side requests.",
+          "Upstash Redis for distributed state management.",
+          "Environment-based configuration for provider credentials.",
+          "Streaming responses between the API and React frontend.",
+          "Dedicated Aruba testing page for ongoing evaluation.",
+        ],
+      },
+
+      {
+        title: "Engineering Challenges & Solutions",
+
+        description:
+          "Building Aruba required addressing challenges beyond basic chatbot integration, including coordinating usage limits across serverless instances, managing variable LLM token consumption, delivering streamed responses, maintaining relevant conversational context, and controlling repeated model-processing overhead.",
+
+        bullets: [
+          "Serverless rate limiting: used Upstash Redis instead of process-local counters.",
+          "Concurrent token usage: implemented atomic Redis Lua operations.",
+          "Variable request costs: combined request limits with token budgeting.",
+          "Response latency: implemented incremental AI response streaming.",
+          "Context relevance: supplied structured portfolio knowledge and system instructions.",
+          "Repeated input processing: leveraged Gemini implicit context caching.",
+          "Public API protection: combined validation, quotas, and execution limits.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "personal-developer-portfolio",
+    title: "Personal Developer Portfolio",
+    Stitle: "Personal Developer Portfolio",
+    shortTitle: "Portfolio",
+    category: "AI powered Portfolio",
+
+    description:
+      "A modern, AI-powered developer portfolio built with Next.js, featuring interactive project case studies, a dedicated skills showcase, responsive design, animated themes, SEO optimization, and an integrated AI assistant.",
+
+    image: "/images/portfolio.png",
+
+    techStack: [
+      "Next.js",
+      "React.js",
+      "TS",
+      "Tailwind CSS",
+      "React TSParticles",
+      "Vercel AI SDK",
+      "Google Gemini",
+      "Vercel Analytics",
+    ],
+
+    role: "Personal Project — Full-Stack Development, UI/UX & Architecture",
+
+    demoUrl: "https://syed-dev-portfolios.vercel.app/",
+    githubUrl: "https://github.com/syed-786/syed-dev-portfolio",
+
+    overview:
+      "A production-deployed developer portfolio designed to showcase professional experience, technical expertise, and engineering projects through an engaging, accessible, and responsive experience. Built with Next.js App Router, React, TypeScript, and Tailwind CSS, the application goes beyond traditional portfolio websites by incorporating dynamic project case studies, a comprehensive skills showcase, interactive visual effects, and Aruba AI — a conversational assistant powered by Google's Gemini models. The project demonstrates modern frontend architecture, full-stack API integration, performance optimization, accessibility, and production deployment practices.",
+
+    contributions: [
+      "Architected and developed a responsive portfolio application using Next.js App Router, React, TypeScript, and Tailwind CSS.",
+
+      "Built reusable UI components for navigation, skills, project cards, experience timelines, testimonials, and interactive sections.",
+
+      "Implemented a dedicated Skills page with categorized technologies, reusable skill cards, brand icons, and shared structured data.",
+
+      "Developed dynamic project case-study pages using slug-based routing and reusable templates.",
+
+      "Integrated Aruba AI, a conversational portfolio assistant powered by Google Gemini and the Vercel AI SDK.",
+
+      "Implemented streaming AI responses through a server-side Next.js API route for a responsive conversational experience.",
+
+      "Developed light and dark themes using next-themes, including an animated starry-night experience.",
+
+      "Implemented responsive navigation with smooth section scrolling, route-aware navigation, and mobile-friendly interactions.",
+
+      "Optimized rendering and loading using lazy loading, code splitting, and IntersectionObserver-based component loading.",
+
+      "Applied accessibility practices including semantic HTML, ARIA attributes, keyboard navigation, and responsive UI patterns.",
+
+      "Configured technical SEO using structured metadata, canonical URLs, Open Graph metadata, sitemap, and robots configuration.",
+
+      "Integrated Vercel Analytics and deployed the application to Vercel.",
+    ],
+
+    engineeringHighlights: [
+      "Modern Next.js architecture: App Router, reusable layouts, dynamic routes, server-side API handlers, and structured metadata.",
+
+      "AI-powered functionality: integrated Google Gemini through the Vercel AI SDK with streamed responses and contextual portfolio knowledge.",
+
+      "Reusable component architecture: shared UI components and structured data power multiple pages and interactive sections.",
+
+      "Dynamic case-study system: slug-based routes render detailed project pages through a shared template.",
+
+      "Centralized skills management: a shared data source powers both the homepage skills preview and detailed Skills page.",
+
+      "Performance optimization: lazy loading, IntersectionObserver, code splitting, and optimized component rendering.",
+
+      "Responsive design: adaptive layouts and navigation across mobile, tablet, and desktop devices.",
+
+      "Theme management: centralized light/dark mode with next-themes and animated visual effects.",
+
+      "Accessibility: semantic markup, ARIA attributes, keyboard interactions, and accessible navigation patterns.",
+
+      "SEO optimization: metadata management, canonical URLs, Open Graph tags, sitemap, and robots configuration.",
+
+      "Production deployment: Vercel hosting, serverless API routes, and analytics integration.",
+    ],
+
+    outcome:
+      "A production-deployed, AI-powered developer portfolio that combines polished UI/UX with modern frontend architecture, full-stack integrations, reusable components, and optimized performance. The application serves as both a professional showcase and a practical demonstration of modern web engineering and AI integration.",
+
+    sections: [
+      {
+        title: "The Goal",
+
+        description:
+          "The objective was to create more than a conventional developer portfolio — a modern, interactive application that demonstrates real engineering capabilities while communicating professional experience, technical expertise, and project contributions to recruiters, engineering managers, and developers.",
+
+        bullets: [
+          "Showcase professional experience, technical skills, and real-world projects.",
+
+          "Demonstrate modern frontend and full-stack engineering practices.",
+
+          "Provide detailed technical case studies for selected projects.",
+
+          "Integrate an AI-powered assistant for interactive portfolio exploration.",
+
+          "Deliver a responsive, accessible, and high-performance experience.",
+        ],
+      },
+
+      {
+        title: "Frontend Architecture & Component Design",
+
+        description:
+          "The application follows a component-driven architecture using Next.js App Router and TypeScript. Reusable components, shared layouts, and structured data help maintain consistency across pages while reducing duplicated logic and simplifying future enhancements.",
+
+        bullets: [
+          "Next.js App Router with reusable layouts and dynamic routes.",
+
+          "Reusable components for navigation, project cards, skills, and testimonials.",
+
+          "Shared data models for project case studies and technology categories.",
+
+          "Responsive layouts built with Tailwind CSS.",
+
+          "Maintainable, modular, and scalable frontend architecture.",
+        ],
+      },
+
+      {
+        title: "Design System & Interactive Experience",
+
+        description:
+          "The portfolio combines a minimal visual design with interactive elements and theme-aware styling. A centralized theme system manages light and dark modes, while animated backgrounds, transitions, and subtle interactions enhance the experience without overwhelming the content.",
+
+        bullets: [
+          "Light and dark themes powered by next-themes.",
+
+          "Animated starry-night effects and interactive visual elements.",
+
+          "Responsive desktop and mobile navigation.",
+
+          "Smooth section scrolling and route-aware navigation.",
+
+          "Subtle scroll-triggered animations and hover interactions.",
+        ],
+      },
+
+      {
+        title: "Dynamic Projects & Skills Architecture",
+
+        description:
+          "Projects and technical skills are managed through structured data sources rather than duplicated page implementations. Dynamic routes generate detailed project case studies, while a shared skills dataset powers both the homepage preview and dedicated Skills page.",
+
+        bullets: [
+          "Dynamic project routes using slug-based navigation.",
+
+          "Reusable case-study templates with project-specific content.",
+
+          "Dedicated project listing with lazy-loaded cards.",
+
+          "Categorized skills with descriptions and technology icons.",
+
+          "Shared data sources for consistent content across pages.",
+        ],
+      },
+
+      {
+        title: "Aruba AI Integration",
+
+        description:
+          "Aruba AI is an integrated conversational assistant that allows visitors to explore professional experience, technical skills, projects, and background through natural-language questions. Built using the Vercel AI SDK and Google Gemini, Aruba processes requests through a server-side Next.js API route and streams generated responses to the frontend.",
+
+        bullets: [
+          "Google Gemini integration through the Vercel AI SDK.",
+
+          "Streaming responses for a responsive chat experience.",
+
+          "Structured portfolio knowledge supplied as AI context.",
+
+          "Server-side API integration with request validation and limits.",
+
+          "Context-aware responses focused on portfolio information.",
+
+          "Dedicated Aruba AI case study covering the complete architecture.",
+        ],
+      },
+
+      {
+        title: "Performance & Accessibility",
+
+        description:
+          "Performance and accessibility were considered throughout development. The application uses lazy loading, conditional rendering, and optimized component structures to reduce unnecessary work, while semantic HTML and accessible interaction patterns improve usability.",
+
+        bullets: [
+          "Lazy loading and IntersectionObserver-based component loading.",
+
+          "Code splitting and optimized component rendering.",
+
+          "Lighthouse-based performance and accessibility evaluation.",
+
+          "Semantic HTML and appropriate ARIA attributes.",
+
+          "Keyboard-accessible navigation and interactive elements.",
+
+          "Responsive layouts across different screen sizes.",
+        ],
+      },
+
+      {
+        title: "SEO, Analytics & Deployment",
+
+        description:
+          "The portfolio is deployed on Vercel and configured with essential technical SEO features. Next.js metadata APIs provide search and social-sharing information, while analytics support visibility into application usage and performance.",
+
+        bullets: [
+          "Production deployment using Vercel.",
+
+          "Page-specific metadata and canonical URLs.",
+
+          "Open Graph metadata for social sharing.",
+
+          "Sitemap and robots configuration.",
+
+          "Vercel Analytics integration.",
+
+          "Serverless API routes for backend functionality.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "ntca-secure-file-sharing",
     title: "NTCA — Secure File Sharing Platform",
     Stitle: "NTCA — Secure File Sharing App",
@@ -392,7 +856,7 @@ export const projects: PortfolioProject[] = [
     category: "Enterprise Security",
     description:
       "A secure document-sharing platform featuring role-based access, invitation-only onboarding, authentication controls, and responsive interfaces for managing large document collections.",
-    image: "/images/p4.jpg",
+    image: "/images/ntca1.png",
     techStack: [
       "React.js",
       "TS",
@@ -477,7 +941,7 @@ export const projects: PortfolioProject[] = [
     category: "E-Commerce",
     description:
       "A large-scale commerce experience built around reusable React interfaces, modular UI architecture, responsive product journeys, and API-driven shopping workflows.",
-    image: "/images/p1.jpg",
+    image: "/images/amway.png",
     techStack: [
       "React.js",
       "TS",
@@ -562,7 +1026,7 @@ export const projects: PortfolioProject[] = [
     category: "Fintech",
     description:
       "A financial-services interface for investment workflows, combining reusable React components, REST API integration, shared state management, and responsive data-heavy screens.",
-    image: "/images/p3.jpg",
+    image: "/images/hdfc2.webp",
     techStack: [
       "React.js",
       "JS",
@@ -647,7 +1111,7 @@ export const projects: PortfolioProject[] = [
     category: "Financial Services",
     description:
       "A web application and admin experience for managing loan-product content, blogs, and operational workflows with reusable Next.js layouts and API-connected screens.",
-    image: "/images/p5.jpg",
+    image: "/images/muthoot.jpg",
     techStack: [
       "Next.js",
       "React.js",
@@ -887,92 +1351,6 @@ export const projects: PortfolioProject[] = [
           "Reusable UI building blocks.",
           "Clearer separation of presentation concerns.",
           "More consistent patterns for future interface changes.",
-        ],
-      },
-    ],
-  },
-
-  {
-    slug: "personal-developer-portfolio",
-    title: "Personal Developer Portfolio",
-    Stitle: "Personal Developer Portfolio",
-    shortTitle: "Portfolio",
-    category: "Personal Project",
-    description:
-      "A responsive developer portfolio featuring animated sections, a starry dark theme, light/dark mode, technical case studies, SEO metadata, and reusable Next.js components.",
-    image: "/images/portfolio.png",
-    techStack: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "next-themes",
-      "React TSParticles",
-      "Vercel Analytics",
-    ],
-    role: "Personal project — design and implementation",
-    demoUrl: "https://syed-dev-portfolios.vercel.app/",
-    githubUrl: "https://github.com/syed-786/syed-dev-portfolio", // Add your repository URL when ready
-    overview:
-      "This portfolio was built to present professional experience, selected projects, technical skills, and testimonials in a polished, interactive experience. Beyond the visual design, it demonstrates reusable component architecture, responsive styling, theme management, and structured project content.",
-    contributions: [
-      "Designed and developed the portfolio using Next.js, React, and TypeScript.",
-      "Built reusable components for navigation, project cards, experience, skills, testimonials, and page layout.",
-      "Implemented light and dark themes using next-themes, including a starry animated hero experience.",
-      "Created dedicated project case-study routes using a shared page template and structured project data.",
-      "Added responsive layouts and animations to support a polished experience across devices.",
-      "Configured page metadata and SEO foundations, including canonical URLs and social-sharing metadata.",
-      "Integrated Vercel Analytics and a contact flow backed by a Next.js API route.",
-    ],
-    engineeringHighlights: [
-      "Reusable case-study architecture: project pages share one template while using project-specific data.",
-      "Dynamic routing: dedicated pages are generated from project slugs.",
-      "Theme management: centralized light/dark mode behavior with next-themes.",
-      "Responsive design: layouts adapt to mobile, tablet, and desktop viewports.",
-      "SEO foundations: structured metadata, canonical URLs, and social-sharing metadata.",
-      "Interactive visuals: animations and theme effects add personality to the user experience.",
-    ],
-    outcome:
-      "A deployed portfolio that combines professional presentation with a maintainable component structure and reusable case-study pages.",
-    sections: [
-      {
-        title: "The Goal",
-        description:
-          "The goal was to create more than a static résumé page: a portfolio that communicates engineering experience, demonstrates attention to detail, and gives each selected project enough context for a recruiter or engineering lead to understand the work.",
-        bullets: [
-          "Present professional experience and selected projects.",
-          "Provide dedicated pages with deeper technical context.",
-          "Create a polished and responsive browsing experience.",
-        ],
-      },
-      {
-        title: "Design System & Theming",
-        description:
-          "Reusable components and Tailwind CSS provide a consistent styling foundation. next-themes manages light and dark mode, while the starry hero and subtle animations add visual personality without changing the underlying information architecture.",
-        bullets: [
-          "Shared components and styling patterns.",
-          "Light/dark mode with next-themes.",
-          "Responsive layouts and animated visual elements.",
-        ],
-      },
-      {
-        title: "Reusable Case Studies",
-        description:
-          "Each project is represented by structured data and a dedicated route. A shared case-study component renders the overview, technical highlights, contributions, and project sections, reducing duplicated page code and making future content updates simpler.",
-        bullets: [
-          "Dynamic project routes driven by slugs.",
-          "A reusable case-study page template.",
-          "Structured project data for consistent rendering.",
-        ],
-      },
-      {
-        title: "Deployment & Discoverability",
-        description:
-          "The site is deployed on Vercel and includes page metadata, canonical URL configuration, social-sharing metadata, and analytics. These provide a foundation for discoverability and monitoring, although search rankings depend on factors beyond metadata alone.",
-        bullets: [
-          "Deployment on Vercel.",
-          "Page metadata and canonical URL configuration.",
-          "Analytics integration and SEO foundations.",
         ],
       },
     ],
@@ -1345,51 +1723,3 @@ export const projects: PortfolioProject[] = [
 
 export const getProjectBySlug = (slug: string) =>
   projects.find((project) => project.slug === slug);
-
-// export const skillCategories = [
-//   {
-//     title: "Frontend",
-//     skills: [
-//       { name: "JavaScript", icon: Globe },
-//       { name: "TypeScript", icon: Terminal },
-//       { name: "React.js", icon: Code2 },
-//       { name: "Next.js", icon: Globe },
-//       { name: "Redux", icon: Terminal },
-//       { name: "Zustand", icon: Terminal },
-//       { name: "Tanstack Query", icon: Terminal },
-//       { name: "Material UI", icon: Terminal },
-//       { name: "Tailwind CSS", icon: Palette },
-//       { name: "HTML5", icon: Terminal },
-//       { name: "CSS3", icon: Terminal },
-//       { name: "React Testing", icon: Terminal },
-//     ],
-//   },
-//   {
-//     title: "Backend",
-//     skills: [
-//       { name: "Node.js", icon: Server },
-//       { name: "Express", icon: Layers },
-//       { name: "MongoDB", icon: Database },
-//       { name: "PostgreSQL", icon: Database },
-//       { name: "GraphQL", icon: Cpu },
-//       { name: "REST APIs", icon: Cloud },
-//       { name: "Socket.io", icon: Cpu },
-//       { name: "OAuth2", icon: Cpu },
-//       { name: "JWT", icon: Cpu },
-//       { name: "Redis", icon: Cpu },
-//     ],
-//   },
-//   {
-//     title: "AI Tools & Others",
-//     skills: [
-//       { name: "GitHub Copilot", icon: GitBranch },
-//       { name: "ChatGPT", icon: GitBranch },
-//       { name: "Claud Code", icon: GitBranch },
-//       { name: "Git", icon: GitBranch },
-//       { name: "Docker", icon: Server },
-//       { name: "AWS", icon: Cloud },
-//       { name: "Figma", icon: Palette },
-//       { name: "CI/CD", icon: Cpu },
-//     ],
-//   },
-// ];
