@@ -9,11 +9,12 @@ export const MAX_TOTAL_TEXT_LENGTH = 40_000;
 
 export const MAX_OUTPUT_TOKENS = 2_500;
 
-export const DAILY_REQUEST_LIMIT = 470;
+export const DAILY_REQUEST_LIMIT = 480;
 export const PACIFIC_TIME_ZONE = "America/Los_Angeles";
 
-export const GLOBAL_INPUT_TPM_LIMIT = 220_000;
-export const MAX_RESERVED_INPUT_TOKENS = 20_000;
+export const GLOBAL_RPM_LIMIT = 12;
+export const GLOBAL_INPUT_TPM_LIMIT = 240_000;
+export const MAX_RESERVED_INPUT_TOKENS = 24_000;
 
 // export const MAX_MESSAGES = 20;
 // export const MAX_REQUEST_BYTES = 24_000;

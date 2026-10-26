@@ -1,7 +1,9 @@
 import { Redis } from "@upstash/redis";
 import { Ratelimit } from "@upstash/ratelimit";
 import {
-  DAILY_REQUEST_LIMIT, PACIFIC_TIME_ZONE, GLOBAL_INPUT_TPM_LIMIT,
+  DAILY_REQUEST_LIMIT,
+  PACIFIC_TIME_ZONE,
+  GLOBAL_INPUT_TPM_LIMIT,
 } from "./config";
 
 const isDevelopment = process.env.NODE_ENV === "development";
@@ -139,8 +141,7 @@ export const ratelimit = new Ratelimit({
 
 export const globalRpmLimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(10, "1 m"),
+  limiter: Ratelimit.slidingWindow(12, "1 m"),
   prefix: "aruba:global:rpm:v1",
   ephemeralCache: false,
 });
-

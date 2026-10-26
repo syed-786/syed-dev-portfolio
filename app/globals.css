@@ -1376,3 +1376,34 @@
     transform: translate(2px, 2px) rotate(90deg);
   }
 }
+
+/* Prevent Aruba floating launcher from covering chat input on mobile */
+@media (max-width: 640px) {
+  .aruba-launcher--open {
+    display: none;
+  }
+}
+
+/* ========================================
+   ARUBA AI — CHAT TYPOGRAPHY
+======================================== */
+/* Aruba AI — Mobile Typography Only */
+@media (max-width: 640px) {
+  .aruba-panel .aruba-user-bubble,
+  .aruba-panel .aruba-assistant-bubble {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .aruba-panel .aruba-assistant-bubble p,
+  .aruba-panel .aruba-assistant-bubble li {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .aruba-panel textarea,
+  .aruba-panel input {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

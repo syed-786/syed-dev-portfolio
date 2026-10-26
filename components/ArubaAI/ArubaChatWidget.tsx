@@ -176,7 +176,7 @@ export default function ArubaChatWidget() {
           aria-label={isOpen ? "Close Aruba chat" : "Ask Syed's AI assistant"}
           aria-expanded={isOpen}
           aria-controls="aruba-chat-panel"
-          className="aruba-launcher group relative flex size-14 shrink-0 items-center justify-center rounded-full"
+          className={`aruba-launcher ${isOpen ? "aruba-launcher--open" : ""} aruba-launcher group relative flex size-14 shrink-0 items-center justify-center rounded-full`}
         >
           <span className="aruba-launcher-halo" aria-hidden="true" />
           <span
