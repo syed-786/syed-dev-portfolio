@@ -619,14 +619,14 @@ const Composer: FC<{ autoFocus: boolean }> = ({ autoFocus }) => {
         render={
           <div
             data-slot="aui_composer-shell"
-            className="aruba-composer-shell flex w-full cursor-text flex-col gap-2 rounded-2xl border p-2.5 transition-all data-[dragging=true]:border-dashed"
+            className="aruba-composer-shell flex min-h-[64px] w-full cursor-text flex-col gap-2 rounded-2xl border p-3 transition-all sm:min-h-0 sm:p-2.5 data-[dragging=true]:border-dashed"
           />
         }
       >
         <ComposerAttachments />
         <ComposerPrimitive.Input
           placeholder="Send a message..."
-          className="aui-composer-input aruba-composer-input max-h-48 min-h-10 w-full resize-none bg-transparent px-2.5 py-1 text-sm leading-6 outline-none"
+          className="aui-composer-input aruba-composer-input max-h-48 min-h-10 w-full resize-none bg-transparent px-2.5 py-1 text-[16px] leading-6 outline-none sm:text-sm"
           rows={1}
           autoFocus={autoFocus}
           enterKeyHint="send"

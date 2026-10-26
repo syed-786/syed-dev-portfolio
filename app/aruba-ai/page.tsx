@@ -51,7 +51,7 @@ const capabilities = [
 
 export default function ArubaTestPage() {
   return (
-    <main className="relative mt-10 isolate min-h-screen overflow-hidden bg-gray-50 text-gray-900 dark:bg-[#0b0713] dark:text-white">
+    <main className="relative mt-18 sm:mt-10 isolate min-h-screen overflow-hidden bg-gray-50 text-gray-900 dark:bg-[#0b0713] dark:text-white">
       {/* Ambient Background */}
       <div
         aria-hidden="true"
