@@ -1385,13 +1385,14 @@
 }
 
 /* ========================================
-   ARUBA AI — CHAT TYPOGRAPHY
+   ARUBA AI — MOBILE CHAT READABILITY
+   Desktop styles remain unchanged.
 ======================================== */
-/* Aruba AI — Mobile Typography Only */
-@media (max-width: 640px) {
+@media (max-width: 639px) {
+  /* Chat bubbles, including Aruba's markdown paragraphs and lists. */
   .aruba-panel .aruba-user-bubble,
   .aruba-panel .aruba-assistant-bubble {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.65;
   }
 
@@ -1401,33 +1402,29 @@
     line-height: inherit;
   }
 
-  /* Match the readable 16px chat typography in the message composer.
-     These scoped declarations override the earlier 13px !important rule. */
+  /* Override the existing 13px !important composer rule. */
   .aruba-panel .aruba-composer-input,
   .aruba-panel .aruba-composer-input:focus,
   .aruba-panel .aruba-composer-input:focus-visible {
-    font-size: 16px !important;
-    line-height: 24px !important;
-    min-height: 48px;
+    font-size: 17px !important;
+    line-height: 26px !important;
+    min-height: 52px !important;
   }
 
-  /* Override the compact composer padding set earlier in this file. */
+  /* Override the earlier compact composer padding. */
   .aruba-panel .aruba-composer-shell {
-    min-height: 76px;
-    padding: 12px 14px !important;
+    min-height: 84px !important;
+    padding: 14px 16px !important;
   }
 
-  /* Welcome greeting and starter questions: mobile only. */
+  /* Initial greeting and starter question cards. */
   .aruba-panel .aruba-welcome-root .rounded-2xl.rounded-tl-sm {
-    font-size: 15px;
+    font-size: 17px;
+    line-height: 1.6;
   }
 
   .aruba-panel .aruba-welcome-suggestions .aruba-suggestion {
-    font-size: 15px;
-  }
-
-  .aruba-panel textarea,
-  .aruba-panel input {
-    line-height: 1.5;
+    font-size: 17px;
+    line-height: 1.45;
   }
 }
