@@ -545,7 +545,7 @@ const ThreadWelcome: FC = () => {
               AI assistant
             </span>
           </div>
-          <div className="rounded-2xl rounded-tl-sm border border-violet-200/60 bg-white/55 px-3.5 py-3 text-[13px] leading-relaxed text-slate-700 shadow-sm dark:border-violet-400/15 dark:bg-violet-400/[0.055] dark:text-slate-200">
+          <div className="rounded-2xl rounded-tl-sm border border-violet-200/60 bg-white/55 px-3.5 py-3 text-[15px] leading-relaxed text-slate-700 sm:text-[13px] shadow-sm dark:border-violet-400/15 dark:bg-violet-400/[0.055] dark:text-slate-200">
             <span aria-label={ARUBA_GREETING} aria-live="off">
               {ARUBA_GREETING.slice(0, visibleCharacters)}
             </span>
@@ -593,7 +593,7 @@ const ThreadSuggestions: FC = () => {
               content: [{ type: "text", text: prompt.question }],
             });
           }}
-          className="aruba-suggestion cursor-pointer group flex min-h-14 items-center gap-3 rounded-xl border border-violet-200/60 bg-white/50 px-3 py-2.5 text-left text-[13px] leading-snug text-slate-700 transition-colors hover:border-violet-400/70 hover:bg-violet-50/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 dark:border-violet-400/15 dark:bg-violet-400/[0.045] dark:text-slate-200 dark:hover:border-violet-400/35 dark:hover:bg-violet-400/[0.09]"
+          className="aruba-suggestion cursor-pointer group flex min-h-14 items-center gap-3 rounded-xl border border-violet-200/60 bg-white/50 px-3 py-2.5 text-left text-[15px] leading-snug sm:text-[13px] text-slate-700 transition-colors hover:border-violet-400/70 hover:bg-violet-50/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 dark:border-violet-400/15 dark:bg-violet-400/[0.045] dark:text-slate-200 dark:hover:border-violet-400/35 dark:hover:bg-violet-400/[0.09]"
         >
           <span
             aria-hidden="true"
@@ -619,14 +619,14 @@ const Composer: FC<{ autoFocus: boolean }> = ({ autoFocus }) => {
         render={
           <div
             data-slot="aui_composer-shell"
-            className="aruba-composer-shell flex min-h-[64px] w-full cursor-text flex-col gap-2 rounded-2xl border p-3 transition-all sm:min-h-0 sm:p-2.5 data-[dragging=true]:border-dashed"
+            className="aruba-composer-shell flex min-h-[76px] w-full cursor-text flex-col gap-2 rounded-2xl border p-2.5 transition-all sm:min-h-0 data-[dragging=true]:border-dashed"
           />
         }
       >
         <ComposerAttachments />
         <ComposerPrimitive.Input
           placeholder="Send a message..."
-          className="aui-composer-input aruba-composer-input max-h-48 min-h-10 w-full resize-none bg-transparent px-2.5 py-1 text-[16px] leading-6 outline-none sm:text-sm"
+          className="aui-composer-input aruba-composer-input max-h-48 min-h-12 w-full resize-none bg-transparent px-2.5 py-1 text-base leading-6 outline-none sm:min-h-10 sm:text-sm"
           rows={1}
           autoFocus={autoFocus}
           enterKeyHint="send"

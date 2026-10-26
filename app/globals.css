@@ -1401,9 +1401,33 @@
     line-height: inherit;
   }
 
+  /* Match the readable 16px chat typography in the message composer.
+     These scoped declarations override the earlier 13px !important rule. */
+  .aruba-panel .aruba-composer-input,
+  .aruba-panel .aruba-composer-input:focus,
+  .aruba-panel .aruba-composer-input:focus-visible {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    min-height: 48px;
+  }
+
+  /* Override the compact composer padding set earlier in this file. */
+  .aruba-panel .aruba-composer-shell {
+    min-height: 76px;
+    padding: 12px 14px !important;
+  }
+
+  /* Welcome greeting and starter questions: mobile only. */
+  .aruba-panel .aruba-welcome-root .rounded-2xl.rounded-tl-sm {
+    font-size: 15px;
+  }
+
+  .aruba-panel .aruba-welcome-suggestions .aruba-suggestion {
+    font-size: 15px;
+  }
+
   .aruba-panel textarea,
   .aruba-panel input {
-    font-size: 16px;
     line-height: 1.5;
   }
 }
