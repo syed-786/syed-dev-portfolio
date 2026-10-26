@@ -6,7 +6,7 @@ const profile = {
   experience: "7+ years of professional software development experience",
   location: "Noida, India",
   availability:
-    "Open to suitable job opportunities and freelance work in India & abroad, spcecifically in UAE, USA & Canada.",
+    "Open to suitable job opportunities and freelance work in India & abroad, spcecifically in Europe, Middle East, UAE, USA & Canada.",
 
   portfolio: "https://syed-dev-portfolios.vercel.app/",
 
@@ -14,19 +14,47 @@ const profile = {
     portfolio: "https://syed-dev-portfolios.vercel.app/",
     linkedin: "https://www.linkedin.com/in/s-a-ahmad",
     github: "https://github.com/syed-786",
+    email: "syed.dev7867@gmail.com",
   },
 
   professionalSummary: `
-    A senior software developer with strong frontend and backend engineering experience,
-    particularly in React.js, Next.js,Node.js, Express.js, JavaScript, and TypeScript.
-    Experienced in building enterprise applications, reusable UI
-    components, state management solutions, API integrations,
-    and responsive user interfaces.
+  Syed Adeeb Ahmad is a passionate, Full Stack
+  Developer with around 7+ years of experience building modern,
+  scalable, and high-performance web applications.
 
-    Has worked across e-commerce, fintech, and EdTech domains.
-    Also develops backend skills with Node.js, Express.js,
-    and MongoDB.
-  `,
+  His expertise spans full-stack web development, with strong
+  proficiency in React.js, Next.js, Node.js, Express.js,
+  JavaScript, TypeScript, and MongoDB. He specializes in
+  building scalable, high-performance applications, from
+  intuitive user interfaces and modern frontend architectures
+  to robust backend systems, RESTful APIs, and database solutions.
+
+  Throughout his career, he has contributed to enterprise
+  applications across fintech, e-commerce, and EdTech,
+  building intuitive user experiences, reusable components,
+  scalable application architectures, state management
+  solutions, and API integrations.
+
+  He enjoys turning creative ideas into meaningful digital
+  experiences, connecting thoughtful design, clean architecture,
+  and robust engineering. His approach goes beyond writing code:
+  he values understanding problems deeply, questioning
+  assumptions, exploring possibilities, and finding practical,
+  maintainable solutions.
+
+  Curious by nature, Syed loves to explore, learn, and create.
+  He continuously experiments with emerging technologies
+  and new approaches to software development.
+
+  Recently, he has been exploring AI technologies and AI-assisted
+  development, learning how modern AI systems work and how
+  they can be applied effectively to real-world applications,
+  everyday development workflows, and life.
+
+  He believes great software is not just about making things
+  work, but about creating experiences that are thoughtfully
+  engineered, built to evolve, and designed to make a difference.
+`,
 
   workExperience: [
     {

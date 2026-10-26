@@ -1,34 +1,34 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Bot, MessageCircle, X, Sparkles } from "lucide-react";
+import {
+  Bot,
+  MessageCircle,
+  X,
+  Sparkles,
+  Maximize2,
+  Minimize2,
+} from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import ArubaChatRuntime from "@/components/ArubaAI/ArubaChatRuntime";
 
 export default function ArubaChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
+  const [isMaximized, setIsMaximized] = useState(false);
+  const [showInvitation, setShowInvitation] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
+  // One initial delay. Once revealed, the invitation stays available
+  // across chat opens/closes and client-side portfolio navigation.
   useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-      return;
-    }
-
-    if (!isMounted) return;
-
-    const timeout = window.setTimeout(() => {
-      setIsMounted(false);
-    }, 260);
-
+    const timeout = window.setTimeout(() => setShowInvitation(true), 2000);
     return () => window.clearTimeout(timeout);
-  }, [isOpen, isMounted]);
+  }, []);
 
   useEffect(() => {
-    if (!isOpen || !isMounted) return;
-
+    if (!isOpen) return;
     closeButtonRef.current?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -39,11 +39,8 @@ export default function ArubaChatWidget() {
     }
 
     document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, isMounted]);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
 
   function closeChat() {
     setIsOpen(false);
@@ -52,89 +49,125 @@ export default function ArubaChatWidget() {
 
   return (
     <>
-      {/* Animated chat portal */}
-      {isMounted && (
-        <section
-          id="aruba-chat-panel"
-          role="dialog"
-          aria-modal="false"
-          aria-labelledby="aruba-chat-title"
-          className={[
-            "aruba-panel aruba-panel-motion",
-            "fixed inset-0 z-[100] flex flex-col overflow-hidden border",
-            "sm:inset-auto sm:bottom-24 sm:right-6",
-            "sm:h-[min(700px,calc(100dvh-8rem))]",
-            "sm:w-[min(440px,calc(100vw-2rem))] sm:rounded-[1.6rem]",
-            isOpen ? "aruba-panel-open" : "aruba-panel-close",
-          ].join(" ")}
-        >
-          {/* Ambient color field */}
-          <div className="aruba-ambient" aria-hidden="true" />
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.section
+            key="aruba-panel"
+            id="aruba-chat-panel"
+            role="dialog"
+            aria-modal="false"
+            aria-labelledby="aruba-chat-title"
+            initial={
+              prefersReducedMotion ? false : { opacity: 0, y: 20, scale: 0.97 }
+            }
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={
+              prefersReducedMotion
+                ? { opacity: 0 }
+                : { opacity: 0, y: 16, scale: 0.97 }
+            }
+            transition={
+              prefersReducedMotion
+                ? { duration: 0 }
+                : { duration: 0.24, ease: "easeOut" }
+            }
+            className={[
+              "aruba-panel aruba-panel-resizable",
+              "fixed inset-0 z-[100] flex flex-col overflow-hidden border",
+              "sm:inset-auto sm:rounded-[1.6rem]",
+              isMaximized ? "aruba-panel-maximized" : "aruba-panel-normal",
+            ].join(" ")}
+          >
+            <div className="aruba-ambient" aria-hidden="true" />
 
-          {/* Header */}
-          <header className="aruba-header relative z-10 flex shrink-0 items-center gap-3 border-b px-4 py-3.5">
-            <div className="aruba-brand-icon relative flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl">
-              <span className="aruba-icon-orbit" aria-hidden="true" />
-              <Bot size={23} aria-hidden="true" />
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
-                <h2
-                  id="aruba-chat-title"
-                  className="text-sm font-semibold tracking-wide"
-                >
-                  Aruba
-                </h2>
-                <span className="aruba-ai-badge">
-                  <Sparkles size={10} aria-hidden="true" />
-                  AI
-                </span>
+            <header className="aruba-header relative z-10 flex shrink-0 items-center gap-3 border-b px-4 py-3.5">
+              <div className="aruba-brand-icon relative flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl">
+                <span className="aruba-icon-orbit" aria-hidden="true" />
+                <Bot size={23} aria-hidden="true" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-2">
+                  <h2
+                    id="aruba-chat-title"
+                    className="text-sm font-semibold tracking-wide"
+                  >
+                    Aruba
+                  </h2>
+                  <span className="aruba-ai-badge">
+                    <Sparkles size={10} aria-hidden="true" />
+                    AI
+                  </span>
+                </div>
+                <p className="aruba-muted mt-0.5 flex items-center gap-1.5 text-xs">
+                  <span className="aruba-status-dot" aria-hidden="true" />
+                  Syed's personal AI assistant
+                </p>
               </div>
 
-              <p className="aruba-muted mt-0.5 flex items-center gap-1.5 text-xs">
-                <span className="aruba-status-dot" aria-hidden="true" />
-                Syed's personal AI assistant
-              </p>
+              <button
+                type="button"
+                onClick={() => setIsMaximized((value) => !value)}
+                aria-label={
+                  isMaximized
+                    ? "Restore Aruba chat window"
+                    : "Maximize Aruba chat window"
+                }
+                title={isMaximized ? "Restore" : "Maximize"}
+                className="aruba-close-button aruba-window-toggle hidden size-9 shrink-0 cursor-pointer items-center justify-center rounded-xl transition sm:flex"
+              >
+                {isMaximized ? (
+                  <Minimize2 size={18} aria-hidden="true" />
+                ) : (
+                  <Maximize2 size={18} aria-hidden="true" />
+                )}
+              </button>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={closeChat}
+                aria-label="Close Aruba chat"
+                className="aruba-close-button flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-xl transition"
+              >
+                <X size={19} aria-hidden="true" />
+              </button>
+            </header>
+
+            <div className="aruba-conversation relative z-[1] min-h-0 flex-1 overflow-hidden">
+              <ArubaChatRuntime />
             </div>
+            <div className="aruba-bottom-glow" aria-hidden="true" />
+          </motion.section>
+        )}
+      </AnimatePresence>
 
-            <button
-              ref={closeButtonRef}
-              type="button"
-              onClick={closeChat}
-              aria-label="Close Aruba chat"
-              className="aruba-close-button cursor-pointer flex size-9 shrink-0 items-center justify-center rounded-xl transition"
+      <div className="aruba-launcher-dock fixed bottom-5 right-5 z-[101] sm:bottom-6 sm:right-6">
+        <AnimatePresence initial={false}>
+          {showInvitation && !isOpen && (
+            <motion.div
+              key="aruba-invitation"
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 5 }}
+              transition={
+                prefersReducedMotion ? { duration: 0 } : { duration: 0.24 }
+              }
+              className="aruba-launcher-label flex"
             >
-              <X size={19} aria-hidden="true" />
-            </button>
-          </header>
-
-          {/* Conversation surface */}
-          <div className="aruba-conversation relative z-[1] min-h-0 flex-1 overflow-hidden">
-            <ArubaChatRuntime />
-          </div>
-
-          {/* Bottom ambient accent */}
-          <div className="aruba-bottom-glow" aria-hidden="true" />
-        </section>
-      )}
-
-      {/* Floating launcher and label */}
-      <div className="aruba-launcher-dock fixed bottom-5 right-5 z-[101] flex items-center gap-3 sm:bottom-6 sm:right-6">
-        <div className="aruba-launcher-label hidden sm:flex">
-          <span className="aruba-label-sparkle">
-            <Sparkles size={13} aria-hidden="true" />
-          </span>
-          <span>
-            <span className="block text-[11px] font-medium opacity-70">
-              GOT A QUESTION?
-            </span>
-            <span className="block text-sm font-semibold">Ask Syed's AI</span>
-          </span>
-          <span className="aruba-label-arrow" aria-hidden="true">
-            ↗
-          </span>
-        </div>
+              <span className="aruba-label-sparkle">
+                <Sparkles size={13} aria-hidden="true" />
+              </span>
+              <span>
+                <span className="hidden text-[11px] font-medium opacity-70 sm:block">
+                  GOT A QUESTION?
+                </span>
+                <span className="block text-sm font-semibold">Ask Aruba</span>
+              </span>
+              <span className="aruba-label-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <button
           ref={launcherRef}
@@ -154,7 +187,6 @@ export default function ArubaChatWidget() {
             className="aruba-launcher-ring aruba-launcher-ring-two"
             aria-hidden="true"
           />
-
           <span className="relative z-[1] transition-transform duration-300 group-hover:scale-110">
             {isOpen ? (
               <X size={23} aria-hidden="true" />
@@ -162,7 +194,6 @@ export default function ArubaChatWidget() {
               <MessageCircle size={24} aria-hidden="true" />
             )}
           </span>
-
           {!isOpen && (
             <span className="aruba-launcher-spark" aria-hidden="true">
               <Sparkles size={12} />

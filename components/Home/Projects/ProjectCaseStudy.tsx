@@ -30,7 +30,9 @@ const ProjectCaseStudy = ({ project }: Props) => {
 
         <div className="relative mx-auto w-[90%] max-w-6xl py-12 sm:py-16 lg:py-10">
           <Link
-            href="/#projects"
+            href="/projects"
+            data-aos="fade-right"
+            data-aos-duration="650"
             className="
               mb-10 inline-flex items-center gap-2
               text-sm font-medium text-gray-600
@@ -42,78 +44,100 @@ const ProjectCaseStudy = ({ project }: Props) => {
             Back to projects
           </Link>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
-            <div>
-              <span className="inline-flex rounded-full border border-violet-200 bg-violet-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-indigo-700 dark:border-violet-400/20 dark:bg-violet-500/10 dark:text-violet-300">
-                {project.category}
-              </span>
+          <div className="grid grid-cols-1 items-center gap-y-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-x-14 lg:gap-y-0">
+            <div
+              className="contents lg:block"
+              // data-aos="fade-up"
+              // data-aos-delay="100"
+              // data-aos-duration="750"
+            >
+              <div
+                className="order-1 lg:order-none"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="750"
+              >
+                <span className="inline-flex rounded-full border border-violet-200 bg-violet-50 px-3 py-1.5 text-xs font-semibold tracking-wide text-indigo-700 dark:border-violet-400/20 dark:bg-violet-500/10 dark:text-violet-300">
+                  {project.category}
+                </span>
 
-              <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-violet-400">
-                Project Case Study
-              </p>
-
-              <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                {project.title}
-              </h1>
-
-              <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 dark:text-gray-300 sm:text-lg">
-                {project.overview}
-              </p>
-
-              <div className="mt-8">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  My role
+                <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-violet-400">
+                  Project Case Study
                 </p>
-                <p className="font-medium">{project.role}</p>
+
+                <h1 className="mt-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+                  {project.title}
+                </h1>
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-2">
-                {project.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="
-                      rounded-lg border border-gray-200
-                      bg-white px-3 py-1.5 text-xs font-medium
-                      text-gray-700 dark:border-white/10
-                      dark:bg-white/5 dark:text-gray-300
-                    "
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              {/* links buttons */}
-              {(project.demoUrl || project.githubUrl) && (
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  {project.demoUrl && (
-                    <Link
-                      href={`${project.shortTitle === "Portfolio" ? project.demoUrl : " /coming-soon?id=p1"} `}
-                      //   href={`/coming-soon?id=p1`}
-                      // target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-violet-500 dark:hover:bg-violet-400 dark:focus-visible:ring-offset-[#0a0a1a]"
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </Link>
-                  )}
+              <div
+                className="order-3 lg:order-none"
+                data-aos="fade-up"
+                data-aos-delay="150"
+                data-aos-duration="750"
+              >
+                {/* Project description */}
+                <p className="max-w-2xl text-base leading-8 text-gray-600 dark:text-gray-300 sm:text-lg lg:mt-6">
+                  {project.overview}
+                </p>
 
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-800 transition-all duration-300 hover:border-indigo-600 hover:text-indigo-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:border-gray-700 dark:text-gray-200 dark:hover:border-violet-400 dark:hover:text-violet-400 dark:focus-visible:ring-offset-[#0a0a1a]"
-                    >
-                      <FaGithub size={17} />
-                      GitHub Repository
-                    </a>
-                  )}
+                {/* My role */}
+                <div className="mt-8">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+                    My role
+                  </p>
+                  <p className="font-medium">{project.role}</p>
                 </div>
-              )}
+
+                {/* Technologies */}
+                <div className="mt-8 flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-gray-700 dark:border-white/10 dark:bg-white/5 dark:text-gray-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Live Demo and GitHub buttons */}
+                {(project.demoUrl || project.githubUrl) && (
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                    {project.demoUrl && (
+                      <Link
+                        href={project.demoUrl}
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-indigo-700 dark:bg-violet-500 dark:hover:bg-violet-400"
+                      >
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </Link>
+                    )}
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-800 transition-all duration-300 hover:border-indigo-600 hover:text-indigo-600 dark:border-gray-700 dark:text-gray-200 dark:hover:border-violet-400 dark:hover:text-violet-400"
+                      >
+                        <FaGithub size={17} />
+                        GitHub Repository
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
 
-            <div className="relative">
+            {/* Image wrapper */}
+            <div
+              className="relative order-2 lg:order-none lg:col-start-2 lg:row-start-1 lg:row-span-2"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="850"
+            >
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-indigo-500/15 to-violet-500/15 blur-2xl" />
 
               <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl dark:border-white/10 dark:bg-[#150f20]">
@@ -136,7 +160,11 @@ const ProjectCaseStudy = ({ project }: Props) => {
       <div className="mx-auto grid w-[90%] max-w-6xl gap-12 py-14 sm:py-20 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-16">
         <div className="min-w-0">
           {/* Overview */}
-          <section className="mb-14 sm:mb-16">
+          <section
+            data-aos="fade-up"
+            data-aos-duration="750"
+            className="mb-14 sm:mb-16"
+          >
             <SectionHeading
               number="01"
               title="Project Overview"
@@ -149,7 +177,11 @@ const ProjectCaseStudy = ({ project }: Props) => {
           </section>
 
           {/* Contributions */}
-          <section className="mb-14 sm:mb-16">
+          <section
+            data-aos="fade-up"
+            data-aos-duration="750"
+            className="mb-14 sm:mb-16"
+          >
             <SectionHeading
               number="02"
               title="My Contributions"
@@ -169,7 +201,11 @@ const ProjectCaseStudy = ({ project }: Props) => {
           </section>
 
           {/* Engineering highlights */}
-          <section className="mb-14 sm:mb-16">
+          <section
+            data-aos="fade-up"
+            data-aos-duration="750"
+            className="mb-14 sm:mb-16"
+          >
             <SectionHeading
               number="03"
               title="Technical Highlights"
@@ -182,9 +218,12 @@ const ProjectCaseStudy = ({ project }: Props) => {
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {project.engineeringHighlights.map((highlight) => (
+              {project.engineeringHighlights.map((highlight, index) => (
                 <div
                   key={highlight}
+                  data-aos="fade-up"
+                  data-aos-delay={(index % 2) * 100}
+                  data-aos-duration="650"
                   className="
                     rounded-xl border border-gray-200
                     bg-white p-4 dark:border-white/10
@@ -206,6 +245,8 @@ const ProjectCaseStudy = ({ project }: Props) => {
           {project.sections.map((section, index) => (
             <section
               key={section.title}
+              data-aos="fade-up"
+              data-aos-duration="750"
               className="mb-14 scroll-mt-24 sm:mb-16"
             >
               <SectionHeading
@@ -234,7 +275,11 @@ const ProjectCaseStudy = ({ project }: Props) => {
           ))}
 
           {/* Outcome */}
-          <section className="rounded-2xl border border-indigo-200 bg-indigo-50/70 p-6 dark:border-violet-400/20 dark:bg-violet-500/[0.06] sm:p-8">
+          <section
+            data-aos="fade-up"
+            data-aos-duration="750"
+            className="rounded-2xl border border-indigo-200 bg-indigo-50/70 p-6 dark:border-violet-400/20 dark:bg-violet-500/[0.06] sm:p-8"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-700 dark:text-violet-300">
               Project Outcome
             </p>
@@ -249,7 +294,12 @@ const ProjectCaseStudy = ({ project }: Props) => {
 
         {/* Sticky sidebar */}
         <aside className="lg:sticky lg:top-28 lg:self-start">
-          <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-white/10 dark:bg-[#150f20]">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            data-aos-duration="750"
+            className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-white/10 dark:bg-[#150f20]"
+          >
             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400">
               At a glance
             </p>
@@ -297,7 +347,11 @@ const ProjectCaseStudy = ({ project }: Props) => {
 
       {/* Bottom navigation */}
       <section className="border-t border-gray-200 dark:border-white/10">
-        <div className="mx-auto flex w-[90%] max-w-6xl flex-col gap-5 py-10 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="700"
+          className="mx-auto flex w-[90%] max-w-6xl flex-col gap-5 py-10 sm:flex-row sm:items-center sm:justify-between"
+        >
           <div>
             <p className="text-lg font-semibold">Explore more of my work</p>
             <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -306,7 +360,7 @@ const ProjectCaseStudy = ({ project }: Props) => {
           </div>
 
           <Link
-            href="/#projects"
+            href="/projects"
             className="
               inline-flex items-center justify-center gap-2
               rounded-xl bg-indigo-600 px-5 py-3

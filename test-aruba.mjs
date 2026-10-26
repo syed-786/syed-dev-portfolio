@@ -44,32 +44,3 @@ if (!response.ok) {
 
   console.log("\n");
 }
-
-// {
-//   company: "Nagarro Software Pvt. Ltd.",
-//   title: "Associate Staff Engineer",
-//   period: "May 2022 – December 2025",
-//   location: "Noida, India",
-//   highlights: [
-//     "Worked on enterprise applications using React.js, Next.js, and TypeScript.",
-//     "Worked with microfrontend architecture and Redux-based state management.",
-//     "Contributed to REST API integration, dynamic form validation, code splitting, and lazy loading.",
-//     "Collaborated with cross-functional teams in an Agile environment.",
-//   ],
-// },
-// {
-//   company: "Incedo Inc.",
-//   title: "Software Engineer",
-//   period: "August 2021 – April 2022",
-//   location: "Gurgaon, India",
-//   highlights: [
-//     "Developed reusable React components.",
-//     "Worked on responsive forms, theming, and Redux Toolkit.",
-//   ],
-// },
-// {
-//   company: "Magic Software",
-//   title: "Senior Software Engineer",
-//   period: "January 2021 – before August 2021",
-//   highlights: ["Worked in software engineering before joining Incedo."],
-// },

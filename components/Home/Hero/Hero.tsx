@@ -1,13 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { FolderOpen, FileText, Files, Handshake } from "lucide-react";
+import {
+  FolderOpen,
+  FileText,
+  Files,
+  Handshake,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
 import React, { useCallback } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const Hero = () => {
   const { resolvedTheme } = useTheme();
@@ -196,7 +204,7 @@ const Hero = () => {
       />
 
       {/* content */}
-      <div className="relative z-10 text-center">
+      <div className="relative z-10 w-full px-4 py-20 text-center pt-16 pb-6 sm:pt-16 sm:pb-8 ">
         {/* subtitle */}
         <div className="sm:mb-6" data-aos="fade-up">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-gray-600 text-sm text-muted-foreground dark:text-gray-200 mb-8">
@@ -275,6 +283,61 @@ const Hero = () => {
               Preview CV
             </a>
           </Button>
+        </div>
+
+        {/* Aruba AI CTA */}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="400"
+          className="mt-6 flex justify-center"
+        >
+          <Link
+            href="/aruba-ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+      group relative inline-flex items-center gap-2.5
+      overflow-hidden rounded-full
+      border border-indigo-300/70
+      bg-white/60 px-5 py-2.5
+      text-sm font-semibold text-indigo-700
+      shadow-sm backdrop-blur-sm
+      transition-all duration-300
+      hover:-translate-y-0.5
+      hover:border-indigo-400
+      hover:bg-indigo-50
+      hover:shadow-[0_5px_25px_rgba(99,102,241,0.15)]
+      dark:border-violet-400/30
+      dark:bg-violet-500/10
+      dark:text-violet-200
+      dark:hover:border-violet-400/60
+      dark:hover:bg-violet-500/20
+      dark:hover:shadow-[0_5px_25px_rgba(139,92,246,0.2)]
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-indigo-500
+      focus-visible:ring-offset-2
+    "
+          >
+            <Sparkles
+              size={17}
+              className="text-indigo-600 dark:text-violet-400"
+              aria-hidden="true"
+            />
+
+            <span>Explore Aruba AI</span>
+
+            <ArrowUpRight
+              size={16}
+              className="
+        transition-transform duration-300
+        group-hover:-translate-y-0.5
+        group-hover:translate-x-0.5
+      "
+              aria-hidden="true"
+            />
+          </Link>
         </div>
       </div>
     </div>

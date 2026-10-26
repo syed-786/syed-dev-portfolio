@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  ComposerAddAttachment,
+  // ComposerAddAttachment,
   ComposerAttachments,
   UserMessageAttachments,
 } from "@/components/attachment.aui";
@@ -37,7 +37,7 @@ import {
   ErrorPrimitive,
   groupPartByType,
   MessagePrimitive,
-  SuggestionPrimitive,
+  useAui,
   ThreadPrimitive,
   type FileMessagePartComponent,
   type ImageMessagePartComponent,
@@ -66,6 +66,8 @@ import {
 import {
   createContext,
   useContext,
+  useEffect,
+  useState,
   useLayoutEffect,
   useRef,
   type ComponentType,
@@ -197,7 +199,11 @@ const ThreadRoot: FC<{ isEmpty: boolean; autoFocus: boolean }> = ({
 
   return (
     <ThreadPrimitive.Root
-      className="aui-root aui-thread-root aruba-thread-root @container flex h-full flex-col"
+      className=" aui-root aui-thread-root aruba-thread-root
+  @container flex h-full flex-col
+  bg-[radial-gradient(ellipse_at_50%_25%,#ede5ff_0%,#e7dcfa_45%,#ddd1f2_100%)]
+  dark:bg-[radial-gradient(ellipse_at_50%_20%,#302044_0%,#21152f_50%,#130d1f_100%)]
+  text-slate-800 dark:text-slate-100"
       style={{
         ["--thread-max-width" as string]: "44rem",
         ["--composer-bg" as string]:
@@ -453,49 +459,155 @@ const ThreadScrollToBottom: FC = () => {
   );
 };
 
+const ARUBA_STARTER_PROMPTS = [
+  {
+    label: "What has Syed worked on?",
+    question:
+      "Tell me about Syed's professional experience, the companies he's worked with, and his key contributions.",
+    icon: "01",
+  },
+  {
+    label: "Explore his projects",
+    question:
+      "Walk me through Syed's most interesting projects and what he contributed to each.",
+    icon: "02",
+  },
+  {
+    label: "What's his tech stack?",
+    question:
+      "What technologies does Syed specialize in across frontend, backend, and databases?",
+    icon: "03",
+  },
+  {
+    label: "What makes him stand out?",
+    question:
+      "What makes Syed a strong full-stack developer? Explain his strengths and engineering approach with examples.",
+    icon: "04",
+  },
+] as const;
+
+const ARUBA_GREETING =
+  "Hey there! 👋 I'm Aruba, Syed's personal AI assistant. I can help you explore his professional experience, technical skills, projects, and engineering approach.";
+const ARUBA_GREETING_SPEED_MS = 10;
+const ARUBA_GREETING_START_DELAY_MS = 250;
+const ARUBA_GREETING_DURATION_MS =
+  ARUBA_GREETING_START_DELAY_MS +
+  ARUBA_GREETING.length * ARUBA_GREETING_SPEED_MS;
+
 const ThreadWelcome: FC = () => {
+  const [visibleCharacters, setVisibleCharacters] = useState(0);
+  const [started, setStarted] = useState(false);
+  const [finished, setFinished] = useState(false);
+
+  useEffect(() => {
+    // A local animation, not a request to Gemini. Timers are cleaned up on unmount.
+    let interval: ReturnType<typeof setInterval> | undefined;
+    const start = setTimeout(() => {
+      setStarted(true);
+      interval = setInterval(() => {
+        setVisibleCharacters((current) => {
+          if (current >= ARUBA_GREETING.length) {
+            clearInterval(interval);
+            return current;
+          }
+          return current + 1;
+        });
+      }, ARUBA_GREETING_SPEED_MS);
+    }, ARUBA_GREETING_START_DELAY_MS);
+    return () => {
+      clearTimeout(start);
+      if (interval) clearInterval(interval);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (visibleCharacters === ARUBA_GREETING.length) setFinished(true);
+  }, [visibleCharacters]);
+
   return (
-    <div className="aui-thread-welcome-root aruba-welcome-root mb-6 flex flex-col px-2">
-      <p className="aui-thread-welcome-message-inner aruba-welcome-title fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-2xl font-semibold tracking-tight duration-200">
-        Explore Syed's work, skills &amp; projects.
+    <div className="aui-thread-welcome-root aruba-welcome-root mb-5 flex flex-col px-2">
+      <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-500 dark:text-violet-300">
+        Welcome to Aruba ✦
       </p>
+      <div className="flex items-start gap-2.5">
+        <span
+          aria-hidden="true"
+          className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-xl border border-violet-300/40 bg-violet-100/70 text-base text-violet-600 dark:border-violet-400/20 dark:bg-violet-400/10 dark:text-violet-300"
+        >
+          ✦
+        </span>
+        <div className="min-w-0 flex-1">
+          <div className="mb-1.5 flex items-center gap-2">
+            <span className="text-xs font-semibold text-slate-800 dark:text-slate-100">
+              ARUBA
+            </span>
+            <span className="text-[10px] text-violet-600/70 dark:text-violet-300/70">
+              AI assistant
+            </span>
+          </div>
+          <div className="rounded-2xl rounded-tl-sm border border-violet-200/60 bg-white/55 px-3.5 py-3 text-[13px] leading-relaxed text-slate-700 shadow-sm dark:border-violet-400/15 dark:bg-violet-400/[0.055] dark:text-slate-200">
+            <span aria-label={ARUBA_GREETING} aria-live="off">
+              {ARUBA_GREETING.slice(0, visibleCharacters)}
+            </span>
+            {started && !finished && (
+              <span
+                aria-hidden="true"
+                className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-0.5 animate-pulse rounded-sm bg-violet-500 align-baseline dark:bg-violet-300"
+              />
+            )}
+          </div>
+          <p className="sr-only" role="status" aria-live="polite">
+            {finished
+              ? "Aruba's welcome message is ready. Choose a suggested question or type your own."
+              : ""}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
 
 const ThreadSuggestions: FC = () => {
-  return (
-    <div className="aui-thread-welcome-suggestions aruba-welcome-suggestions flex w-full flex-col">
-      <ThreadPrimitive.Suggestions>
-        {() => <ThreadSuggestionItem />}
-      </ThreadPrimitive.Suggestions>
-    </div>
-  );
-};
+  const aui = useAui();
+  const [show, setShow] = useState(false);
 
-const ThreadSuggestionItem: FC = () => {
+  useEffect(() => {
+    const timer = setTimeout(
+      () => setShow(true),
+      ARUBA_GREETING_DURATION_MS + 250,
+    );
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!show) return null;
+
   return (
-    <div className="aui-thread-welcome-suggestion-display fade-in slide-in-from-bottom-2 animate-in fill-mode-both duration-200">
-      <SuggestionPrimitive.Trigger
-        send
-        render={
-          <button
-            type="button"
-            className="aui-thread-welcome-suggestion aruba-suggestion group flex w-full items-baseline gap-2.5 rounded-xl px-3 py-3 text-start text-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-indigo-400 motion-reduce:transition-none"
-          />
-        }
-      >
-        <span
-          aria-hidden
-          className="text-muted-foreground/60 group-hover:text-foreground font-mono text-xs transition-colors motion-reduce:transition-none"
+    <div className="aui-thread-welcome-suggestions  aruba-welcome-suggestions grid w-full grid-cols-1 gap-2 px-1 sm:grid-cols-2">
+      {ARUBA_STARTER_PROMPTS.map((prompt) => (
+        <button
+          key={prompt.label}
+          type="button"
+          onClick={() => {
+            void aui.thread().append({
+              role: "user",
+              content: [{ type: "text", text: prompt.question }],
+            });
+          }}
+          className="aruba-suggestion cursor-pointer group flex min-h-14 items-center gap-3 rounded-xl border border-violet-200/60 bg-white/50 px-3 py-2.5 text-left text-[13px] leading-snug text-slate-700 transition-colors hover:border-violet-400/70 hover:bg-violet-50/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 dark:border-violet-400/15 dark:bg-violet-400/[0.045] dark:text-slate-200 dark:hover:border-violet-400/35 dark:hover:bg-violet-400/[0.09]"
         >
-          {">"}
-        </span>
-        <span className="min-w-0 flex-1 truncate">
-          <SuggestionPrimitive.Title className="aui-thread-welcome-suggestion-text-1 text-foreground" />{" "}
-          <SuggestionPrimitive.Description className="aui-thread-welcome-suggestion-text-2 text-muted-foreground empty:hidden" />
-        </span>
-      </SuggestionPrimitive.Trigger>
+          <span
+            aria-hidden="true"
+            className="shrink-0 text-[11px] font-semibold text-violet-500 dark:text-violet-300"
+          >
+            {prompt.icon}
+          </span>
+          <span>{prompt.label}</span>
+          <ArrowUpIcon
+            aria-hidden="true"
+            className="ml-auto size-3.5 rotate-45 text-violet-400 opacity-70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </button>
+      ))}
     </div>
   );
 };
@@ -535,8 +647,8 @@ const ComposerAction: FC = () => {
   );
 
   return (
-    <div className="aui-composer-action-wrapper relative flex items-center justify-between">
-      <ComposerAddAttachment />
+    <div className="aui-composer-action-wrapper relative flex items-center justify-end">
+      {/* <ComposerAddAttachment /> */}
       <div className="flex items-center gap-1.5">
         <AuiIf condition={(s) => s.thread.capabilities.dictation}>
           <AuiIf condition={(s) => s.composer.dictation == null}>
@@ -626,8 +738,11 @@ const ComposerAction: FC = () => {
 const MessageError: FC = () => {
   return (
     <MessagePrimitive.Error>
-      <ErrorPrimitive.Root className="aui-message-error-root border-destructive bg-destructive/10 text-destructive dark:bg-destructive/5 mt-2 rounded-md border p-3 text-sm dark:text-red-200">
-        <ErrorPrimitive.Message className="aui-message-error-message line-clamp-2" />
+      <ErrorPrimitive.Root
+        role="alert"
+        className="aui-message-error-root border-destructive bg-destructive/10 text-destructive dark:bg-destructive/5 mt-2 rounded-md border p-3 text-sm dark:text-red-200"
+      >
+        <ErrorPrimitive.Message className="aui-message-error-message whitespace-pre-wrap wrap-break-word" />
       </ErrorPrimitive.Root>
     </MessagePrimitive.Error>
   );
